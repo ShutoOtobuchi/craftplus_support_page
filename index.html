@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クラフトプラス 団体向けサポートページ</title>
+    <style>
+        /* 基本設定 */
+        :root {
+            --primary-color: #00B050; /* ロゴに合わせた緑色 */
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        /* メインビジュアル / ウェルカムメッセージ */
+        .hero {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mission-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        /* コンテンツグリッド */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* カードデザイン */
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .link-list li {
+            margin-bottom: 10px;
+        }
+
+        .link-list li a {
+            display: block;
+            padding: 8px 12px;
+            background-color: #f0f8f0;
+            border-radius: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .link-list li a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #333;
+            color: white;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <img src="500-500_マークのみ_緑.png" alt="Craft Plus Logo" class="logo-img">
+            <span>クラフトプラス サポート</span>
+        </div>
+        <nav>
+            <a href="https://craft-plus.jp/" target="_blank">公式サイトへ戻る</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>クラフトプラス サポートへようこそ</h1>
+        <p>ユーザー様にとって「一冊の教科書」のような存在になるべく、<br>サービスに関する情報をまとめています。</p>
+        
+        <div class="mission-box">
+            <strong>ミッション：「マイクラで学習を楽しく」</strong><br>
+            マイクラだからこそ、楽しいからこそ続けられる教材を作り続けています。
+        </div>
+    </section>
+
+    <div class="container">
+
+        <article class="card">
+            <h2>🔰 はじめての方・導入検討中の方</h2>
+            <p>マインクラフトを用いてプログラミング・理科・歴史などを学べる教材を提供しています。</p>
+            <ul class="link-list">
+                <li><a href="https://craft-plus.jp/">クラフトプラスとは？</a></li>
+                <li><a href="flow.html">ご契約までの流れ</a></li>
+            </ul>
+        </article>
+
+        <article class="card">
+            <h2>📖 ガイド・マニュアル</h2>
+            <p>使い方の基本からトラブルシューティングまで。</p>
+            <ul class="link-list">
+                <li><a href="guide.html">クラフトプラス スタートガイド</a></li>
+                <li><a href="commands.html">よく使うコマンド一覧</a></li>
+                <li><a href="trouble.html">トラブル対応マニュアル</a></li>
+            </ul>
+        </article>
+
+        <article class="card">
+            <h2>💳 契約・決済</h2>
+            <p>プランの変更や請求に関する情報はこちら。</p>
+            <ul class="link-list">
+                <li><a href="users.html">利用人数の管理</a></li>
+                <li><a href="cancellation.html">解約手続きについて</a></li>
+                <li><a href="payment.html">請求と支払いの流れ</a></li>
+            </ul>
+        </article>
+
+        <article class="card">
+            <h2>✉️ サポート・連絡</h2>
+            <p>お困りの際はこちらからお問い合わせください。</p>
+            <ul class="link-list">
+                <li><a href="faq.html">よくあるご質問 (FAQ)</a></li>
+                <li><a href="forms.html">お問い合わせフォーム一覧</a></li>
+            </ul>
+        </article>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Craft Plus Support. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

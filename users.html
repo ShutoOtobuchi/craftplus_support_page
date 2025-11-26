@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用人数の管理 | クラフトプラス サポート</title>
+    <style>
+        /* 共通設定 */
+        :root {
+            --primary-color: #00B050;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --accent-bg: #fff3e0; /* 注意書き用の背景色（薄いオレンジ） */
+            --accent-border: #ffe0b2;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* パンくずリスト */
+        .breadcrumbs {
+            max-width: 800px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* メインコンテンツ */
+        .content-container {
+            max-width: 800px;
+            margin: 20px auto 60px;
+            padding: 0 20px;
+        }
+
+        .doc-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* コンテンツカード */
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* アクションボタン（フォーム用） */
+        .action-btn {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 30px auto;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(0,176,80, 0.3);
+        }
+        
+        .action-btn:hover {
+            background-color: #008a3e;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* 注意書きエリア */
+        .notice-box {
+            background-color: var(--accent-bg);
+            border: 1px solid var(--accent-border);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .notice-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #e65100; /* 濃いオレンジ */
+            display: flex;
+            align-items: center;
+        }
+        
+        .notice-title::before {
+            content: "📌";
+            margin-right: 10px;
+        }
+
+        .notice-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .notice-list li {
+            margin-bottom: 10px;
+        }
+
+        /* 締切日の強調 */
+        .deadline-highlight {
+            font-weight: bold;
+            color: #d32f2f; /* 赤 */
+            background-color: rgba(255,255,255,0.6);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        /* 問い合わせエリア */
+        .contact-area {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <a href="index.html" style="display:flex; align-items:center; color:inherit;">
+                <img src="500-500_マークのみ_緑.png" alt="Craft Plus Logo" class="logo-img">
+                <span>クラフトプラス サポート</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">トップへ戻る</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="index.html">トップ</a> &gt; 利用人数の管理
+    </div>
+
+    <div class="content-container">
+        <h1 class="doc-title">利用人数の管理</h1>
+        
+        <div class="card">
+            <p>クラフトプラスのご契約は、<strong>「利用人数（＝生徒＋講師の合計）」</strong>に基づいて行われています。</p>
+            <p>正確な契約状況の把握と適切な請求処理のため、利用人数の変更が発生した場合は、必ず下記の専用フォームからご連絡をお願いいたします。</p>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScmtc3KJmhmtop4SWIW8m67_WDQEJd0AN89A_in93IpAGlPLA/viewform?usp=header" target="_blank" class="action-btn">
+                利用人数 変更申請フォーム &rarr;
+            </a>
+
+            <div class="notice-box">
+                <div class="notice-title">ご注意・申請期限について</div>
+                <ul class="notice-list">
+                    <li><strong>変更が生じるたびに都度ではなく、毎月1回にまとめてご申請ください。</strong><br>
+                    <span style="font-size:0.9rem; color:#666;">※ 同月内に複数回申請があった場合は、20日23:59時点での最新の内容を反映いたします。</span></li>
+                    
+                    <li>ご申請内容をもとに、請求金額を更新いたします。</li>
+                    
+                    <li>申請の締切は、<strong>変更を適用したい月の<span class="deadline-highlight">前月20日 23:

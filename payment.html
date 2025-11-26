@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>請求と支払いの流れ | クラフトプラス サポート</title>
+    <style>
+        /* 共通設定 */
+        :root {
+            --primary-color: #00B050;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* パンくずリスト */
+        .breadcrumbs {
+            max-width: 800px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* メインコンテンツ */
+        .content-container {
+            max-width: 800px;
+            margin: 20px auto 60px;
+            padding: 0 20px;
+        }
+
+        .doc-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* フローのステップ表示 */
+        .flow-step {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .step-header {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .step-date {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        /* テーブルスタイル */
+        .table-section {
+            margin-top: 40px;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .table-section h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+            color: #555;
+            width: 30%;
+        }
+
+        /* 注意書きボックス */
+        .note-box {
+            background-color: #fff8e1; /* 薄い黄色 */
+            border: 1px solid #ffe082;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .note-title {
+            font-weight: bold;
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .note-title::before {
+            content: "📌";
+            margin-right: 8px;
+        }
+
+        /* お問い合わせエリア */
+        .contact-area {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <a href="index.html" style="display:flex; align-items:center; color:inherit;">
+                <img src="500-500_マークのみ_緑.png" alt="Craft Plus Logo" class="logo-img">
+                <span>クラフトプラス サポート</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">トップへ戻る</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="index.html">トップ</a> &gt; 請求と支払いの流れ
+    </div>
+
+    <div class="content-container">
+        <h1 class="doc-title">請求と支払いの流れ</h1>
+        
+        <p>クラフトプラスのご利用に関する請求およびお支払いの流れは、以下の通りです。</p>
+
+        <div class="flow-step">
+            <div class="step-header">
+                1. 請求書の送付 <span class="step-date">毎月10日まで</span>
+            </div>
+            <ul>
+                <li>利用人数に基づいた請求金額を計算し、<strong>毎月10日までに請求書をPDF形式で送付</strong>いたします。</li>
+                <li>請求書は、ご登録いただいたメールアドレス宛にお送りします。</li>
+            </ul>
+        </div>
+
+        <div class="flow-step">
+            <div class="step-header">
+                2. ご確認とお支払い <span class="step-date">翌月末日まで</span>
+            </div>
+            <ul>
+                <li>内容をご確認のうえ、請求書記載の銀行口座へお振込みをお願いいたします。</li>
+                <li>お支払い期限は、請求対象月の翌月末日までです。</li>
+            </ul>
+        </div>
+
+        <div class="table-section">
+            <h3>🗓 例：9月利用分のお手続きスケジュール</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>日付</th>
+                            <th>内容</th>
+                            <th>対応者</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>8月20日まで</td>
+                            <td>9月の利用人数変更申請の締切</td>
+                            <td>団体様</td>
+                        </tr>
+                        <tr>
+                            <td>9月10日まで</td>
+                            <td>利用人数をもとに請求書を送付</td>
+                            <td>事務局（クラフトプラス）</td>
+                        </tr>
+                        <tr>
+                            <td>10月31日まで</td>
+                            <td>お支払い</td>
+                            <td>団体様</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="note-box">
+            <div class="note-title">ご注意</div>
+            <p>請求対象の利用人数は<strong>【前月20日時点】</strong>の申請内容に基づいて確定します。</p>
+            <p>変更がある場合は、以下のページから申請を行ってください。<br>
+            &rarr; <a href="users.html" style="font-weight:bold;">利用人数の管理ページへ</a></p>
+        </div>
+
+        <div class="contact-area">
+            <p>ご不明な点があれば、<a href="https://docs.google.com/forms/d/e/1FAIpQLScLtgEMQA6dt01u-anSSbHF6BgqVYT6ehr5jj7oOuJMhDT3xQ/viewform?usp=header" target="_blank">お問い合わせフォーム</a>までお気軽にお問い合わせください。</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

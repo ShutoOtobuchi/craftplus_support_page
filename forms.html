@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>フォーム一覧 | クラフトプラス サポート</title>
+    <style>
+        /* 共通設定 */
+        :root {
+            --primary-color: #00B050;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --btn-hover: #008a3e;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* パンくずリスト */
+        .breadcrumbs {
+            max-width: 1000px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .breadcrumbs a { color: var(--primary-color); }
+
+        /* メインコンテンツ */
+        .content-container {
+            max-width: 1000px;
+            margin: 20px auto 60px;
+            padding: 0 20px;
+        }
+
+        .doc-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* グリッドレイアウト */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* フォームカード */
+        .form-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.2s;
+        }
+
+        .form-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            color: #222;
+        }
+        
+        .card-icon {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .deadline-highlight {
+            background-color: #fff3e0;
+            color: #e65100;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        /* ボタン */
+        .form-btn {
+            display: block;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: auto; /* 下揃え */
+        }
+
+        .form-btn:hover {
+            background-color: var(--btn-hover);
+            color: white;
+            opacity: 1;
+        }
+
+        /* 解約などの特別な色 */
+        .btn-gray {
+            background-color: #757575;
+        }
+        .btn-gray:hover {
+            background-color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <a href="index.html" style="display:flex; align-items:center; color:inherit;">
+                <img src="500-500_マークのみ_緑.png" alt="Craft Plus Logo" class="logo-img">
+                <span>クラフトプラス サポート</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">トップへ戻る</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="index.html">トップ</a> &gt; フォーム一覧
+    </div>
+
+    <div class="content-container">
+        <h1 class="doc-title">フォーム一覧</h1>
+        <p>各種お手続きやお問い合わせに関するフォーム一覧です。<br>ご希望の項目を選択してください。</p>
+
+        <div class="form-grid">
+
+            <div class="form-card">
+                <div class="card-header">
+                    <h2 class="card-title"><span class="card-icon">📋</span> 利用人数変更</h2>
+                    <p class="card-desc">利用人数の追加・削減がある場合はこちらからご連絡ください。</p>
+                    <div class="deadline-highlight">締切：毎月20日（翌月反映）</div>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScmtc3KJmhmtop4SWIW8m67_WDQEJd0AN89A_in93IpAGlPLA/viewform?usp=header" target="_blank" class="form-btn">
+                    変更申請フォームへ
+                </a>
+            </div>
+
+            <div class="form-card" style="border-top-color: #757575;">
+                <div class="card-header">
+                    <h2 class="card-title"><span class="card-icon">🗑️</span> 解約申請</h2>
+                    <p class="card-desc">解約をご希望の際はこちらから申請をお願いします。</p>
+                    <div class="deadline-highlight">締切：解約希望月の20日まで</div>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSffzk2H6bMZZ2Rs2XnDcbrIKmSFKf_TCmzGg0M8WgVuDPUwrw/viewform?usp=header" target="_blank" class="form-btn btn-gray">
+                    解約申請フォームへ
+                </a>
+            </div>
+
+            <div class="form-card">
+                <div class="card-header">
+                    <h2 class="card-title"><span class="card-icon">🐞</span> バグ・不具合報告</h2>
+                    <p class="card-desc">教材やワールドの不具合を発見された場合は、こちらからご報告ください。</p>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank" class="form-btn">
+                    不具合報告フォームへ
+                </a>
+            </div>
+
+            <div class="form-card">
+                <div class="card-header">
+                    <h2 class="card-title"><span class="card-icon">💬</span> その他のお問い合わせ</h2>
+                    <p class="card-desc">ご不明点・ご相談がございましたら、お気軽にご連絡ください。</p>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScLtgEMQA6dt01u-anSSbHF6BgqVYT6ehr5jj7oOuJMhDT3xQ/viewform?usp=header" target="_blank" class="form-btn">
+                    お問い合わせフォームへ
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

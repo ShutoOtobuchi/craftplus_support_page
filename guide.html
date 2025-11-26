@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クラフトプラス スタートガイド | サポート</title>
+    <style>
+        /* 共通設定 */
+        :root {
+            --primary-color: #00B050;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --accent-bg: #e8f5e9;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* パンくずリスト */
+        .breadcrumbs {
+            max-width: 900px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* メインコンテンツ */
+        .content-container {
+            max-width: 900px;
+            margin: 20px auto 60px;
+            padding: 0 20px;
+        }
+
+        .doc-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* セクションスタイル */
+        section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            color: #222;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #444;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin-bottom: 1rem;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 補足・注意書き */
+        .note {
+            font-size: 0.9rem;
+            color: #666;
+            background-color: #f5f5f5;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* リンクボタン */
+        .btn-link {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .btn-link:hover {
+            color: white;
+            background-color: #008a3e;
+        }
+
+        /* 手順リスト（番号付き） */
+        ol.steps {
+            counter-reset: step;
+            list-style: none;
+            padding: 0;
+        }
+        ol.steps li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 15px;
+        }
+        ol.steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* トラブルシューティング */
+        .trouble-item {
+            margin-bottom: 20px;
+        }
+        .trouble-question {
+            font-weight: bold;
+            color: #d32f2f; /* 赤系で強調 */
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .trouble-question::before {
+            content: "Q.";
+            margin-right: 8px;
+            background: #ffebee;
+            color: #d32f2f;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* 問い合わせエリア (Aside) */
+        .contact-area {
+            background-color: var(--accent-bg);
+            border: 1px solid #c8e6c9;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .contact-area h3 {
+            border-left: none;
+            padding-left: 0;
+            margin-top: 0;
+            color: #2e7d32;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 600px) {
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <a href="index.html" style="display:flex; align-items:center; color:inherit;">
+                <img src="500-500_マークのみ_緑.png" alt="Craft Plus Logo" class="logo-img">
+                <span>クラフトプラス サポート</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">トップへ戻る</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="index.html">トップ</a> &gt; クラフトプラス スタートガイド
+    </div>
+
+    <div class="content-container">
+        <h1 class="doc-title">クラフトプラス スタートガイド</h1>
+        
+        <p>このページは、クラフトプラスの教材をスムーズに利用開始できるように、導入準備から授業の進行方法、トラブル対応までを一通りまとめた<strong>「実践マニュアル」</strong>です。<br>
+        はじめての方でも安心してご利用いただけるよう、順を追ってご案内します。</p>
+
+        <section>
+            <h2>1. 利用に必要な環境・アカウントの確認</h2>
+            <p>クラフトプラスを使用するには以下の環境が必要です。</p>
+            <ul>
+                <li><strong>デバイス</strong>：PCまたはタブレット（Windows／Mac／iPad）</li>
+                <li><strong>ネットワーク環境</strong>：安定したインターネット接続</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Minecraft Education Edition のインストール・ログイン</h2>
+            
+            <h3>1．インストール</h3>
+            <p>ご利用にあたって、まずは<strong>Minecraft Education Edition（教育版マインクラフト）</strong>を端末にインストールする必要があります。</p>
+            <p><a href="https://education.minecraft.net/ja-jp/get-started/download" target="_blank" class="btn-link">公式ダウンロードページはこちら <i style="font-size:0.8em">↗</i></a></p>
+            <p class="note">OSごとにインストーラーを選択してください。（Windows／macOS／iPadなど）</p>
+
+            <h3>2．ログイン方法</h3>
+            <p>以下のいずれかのアカウントでログインできます。</p>
+            
+            <strong>● ご自身でアカウントを作成する場合</strong>
+            <p style="margin-top:5px;">Microsoft 365アカウントを新規作成していただき、作成したアカウント情報でログインしてください。</p>
+            
+            <strong>● オプションでアカウント発行を申し込んだ場合</strong>
+            <p style="margin-top:5px;">アカウント発行オプションを選択された方には、<strong>専用の「マイクラ用メールアドレス」と「パスワード」</strong>を個別にお送りいたします。受け取ったアカウント情報を使用して、ログインできるか確認してください。</p>
+            
+            <p class="note">※ Microsoft 365 アカウント情報（マイクラ用メールアドレスとパスワード）は、申込団体の管理者の方へ一括でお送りします。必要に応じて各利用者に配布してください。</p>
+        </section>
+
+        <section>
+            <h2>3. 教材の取得</h2>
+            <p>ドリル<code>PDF</code>とワールドデータ<code>.mcworld</code>は、以下の共有フォルダからダウンロードできます。</p>
+            
+            <a href="https://drive.google.com/drive/folders/1x73BRYIY2Zr0C2oegONynI3QIRy44hoi?usp=sharing" target="_blank" class="btn-link">教材ダウンロードフォルダ (Google Drive)</a>
+            
+            <div class="note">
+                <p>※ このリンクは、申込時にご連絡いただいたメールアドレスに共有設定されています。必ずそのGoogleアカウントでログインした状態でアクセスしてください。</p>
+                <p>※ ドリル<code>PDF</code>のみでワールドデータ<code>.mcworld</code>は無い教材もございます。</p>
+            </div>
+
+            <h3>ワールドのインポートの方法</h3>
+            <ol class="steps">
+                <li>共有フォルダから <code>.mcworld</code> ファイルをダウンロード</li>
+                <li>Minecraft Education Editionを起動</li>
+                <li>ホーム画面の「インポート」→ <code>.mcworld</code> ファイルを選択</li>
+                <li>ワールドがゲーム内に取り込まれます</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>4. 授業の進め方</h2>
+            <ol class="steps">
+                <li>Minecraft Education Editionにログイン</li>
+                <li>ワールドを開く（原則、1人で利用）<br>
+                    <span style="font-size:0.9rem; color:#666;">※「マルチ対応」と明記されていない教材は、1人で使用してください。</span>
+                </li>
+                <li>課題に取り組む、ステージを進行する</li>
+                <li>授業後はログアウトしてください</li>
+            </ol>
+            <p class="note">※ 同じアカウントでログインすれば、ワールドの状態は保存されており、次回は続きから再開可能です。</p>
+        </section>
+
+        <section>
+            <h2>5. よくあるトラブルと対応方法</h2>
+            
+            <div class="trouble-item">
+                <div class="trouble-question">ワールドが起動しない</div>
+                <p>一時的な不具合の可能性があります、教育版マインクラフトを再起動してください。</p>
+            </div>
+
+            <div class="trouble-item">
+                <div class="trouble-question">ステージが始まらない</div>
+                <p>前のステージが正常に終了していない可能性があります。<a href="commands.html" target="_blank">よく使うコマンド一覧</a>に記載してある強制スタートコマンドを使用してください。</p>
+            </div>
+
+            <div class="trouble-item">
+                <div class="trouble-question">プログラムを正しく入力しているのに正解判定が行われない</div>
+                <p>該当ステージの不具合の可能性があるので、<a href="commands.html" target="_blank">よく使うコマンド一覧</a>に記載してあるコマンドで強制的に通過してください。</p>
+            </div>
+
+            <div class="trouble-item">
+                <div class="trouble-question">マイクラが強制終了してしまう</div>
+                <p>デバイスのスペックや同時実行数が原因で落ちることがあります。不要なアプリケーションを閉じてから再起動してください。</p>
+            </div>
+
+            <p>あわせて <a href="trouble.html" target="_blank">トラブル対応マニュアル</a> もご参照ください。</p>
+        </section>
+
+        <div class="contact-area">
+            <h3>バグ・不具合を見つけた場合</h3>
+            <p>お手数ですが<a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank">バグ・不具合報告フォーム</a>からご報告をお願いいたします。</p>
+            
+            <h3 style="margin-top:20px;">その他のお問い合わせ</h3>
+            <p>その他ご不明点がある場合は、<a href="https://docs.google.com/forms/d/e/1FAIpQLScLtgEMQA6dt01u-anSSbHF6BgqVYT6ehr5jj7oOuJMhDT3xQ/viewform?usp=header" target="_blank">お問い合わせフォーム</a>をご利用ください。</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

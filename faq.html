@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>よくあるご質問 | クラフトプラス サポート</title>
+    <style>
+        /* 共通設定 */
+        :root {
+            --primary-color: #00B050;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --q-color: #00B050; /* Qの文字色 */
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* パンくずリスト */
+        .breadcrumbs {
+            max-width: 800px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* メインコンテンツ */
+        .content-container {
+            max-width: 800px;
+            margin: 20px auto 60px;
+            padding: 0 20px;
+        }
+
+        .doc-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* FAQ アコーディオン */
+        details {
+            background: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        details[open] {
+            border-color: var(--primary-color);
+        }
+
+        summary {
+            padding: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: flex-start; /* 長い質問でもQの位置を固定 */
+            font-size: 1.05rem;
+        }
+
+        /* Qマーク */
+        summary::before {
+            content: "Q.";
+            color: var(--q-color);
+            font-weight: 900;
+            margin-right: 12px;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        /* 開閉アイコン */
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #ccc;
+            margin-left: auto; /* 右端へ */
+            padding-left: 10px;
+            font-weight: normal;
+            transition: 0.2s;
+        }
+
+        details[open] summary {
+            background-color: #fcfcfc;
+            border-bottom: 1px solid #eee;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+            color: var(--primary-color);
+        }
+
+        /* 回答エリア */
+        .answer {
+            padding: 20px 20px 20px 50px; /* Qの分だけ左インデント */
+            background-color: white;
+            position: relative;
+        }
+
+        .answer::before {
+            content: "A.";
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .answer p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        .answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 内部リンクボタン */
+        .ref-link {
+            display: inline-block;
+            margin-top: 5px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* コンタクトエリア */
+        .contact-area {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 600px) {
+            .answer {
+                padding: 20px; /* モバイルではインデントを減らす */
+            }
+            .answer::before {
+                position: static; /* A. を行内に戻す */
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <a href="index.html" style="display:flex; align-items:center; color:inherit;">
+                <img src="500-500_マークのみ_緑.png" alt="Craft Plus Logo" class="logo-img">
+                <span>クラフトプラス サポート</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">トップへ戻る</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="index.html">トップ</a> &gt; よくあるご質問
+    </div>
+
+    <div class="content-container">
+        <h1 class="doc-title">よくあるご質問</h1>
+        <p style="margin-bottom:30px;">クラフトプラスをご利用中、またはご検討中によくいただくご質問をまとめました。<br>質問部分をクリック（タップ）すると回答が表示されます。</p>
+
+        <details>
+            <summary>お試しのようなものはありますか？</summary>
+            <div class="answer">
+                <p>はい、ご希望の方には一部教材の体験版をご案内いたします。<br>
+                まずはメールにてご相談ください。</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>利用人数の変更は可能ですか？</summary>
+            <div class="answer">
+                <p>可能でございます。申請方法などの詳細は以下のページをご覧ください。</p>
+                <a href="users.html" class="ref-link">利用人数の管理ページへ &rarr;</a>
+            </div>
+        </details>
+
+        <details>
+            <summary>解約はいつでも可能ですか？</summary>
+            <div class="answer">
+                <p>解約は<strong>解約希望月の20日までに申請</strong>いただければ、当該月末での解約が可能です。</p>
+                <p>詳細は以下のページをご確認ください。</p>
+                <a href="cancellation.html" class="ref-link">解約手続きについて &rarr;</a>
+            </div>
+        </details>
+
+        <details>
+            <summary>授業中にバグが発生しました。どうすればよいですか？</summary>
+            <div class="answer">
+                <p>ワールドの再読み込み、教育版マインクラフトの再起動をまずお試しください。</p>
+                <p>それでも改善しない場合は、<strong><a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank">バグ・不具合報告フォーム</a></strong>より詳細をご報告ください。</p>
+                <p>また、以下のマニュアルもご参照ください。<br>
+                <a href="trouble.html" class="ref-link">トラブル対応マニュアルへ

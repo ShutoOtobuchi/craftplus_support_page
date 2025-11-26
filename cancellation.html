@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解約手続きについて | クラフトプラス サポート</title>
+    <style>
+        /* 共通設定 */
+        :root {
+            --primary-color: #00B050;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --warning-bg: #fff8e1; /* 注意書き背景 */
+            --warning-border: #ffecb3;
+            --danger-color: #d32f2f;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* パンくずリスト */
+        .breadcrumbs {
+            max-width: 800px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* メインコンテンツ */
+        .content-container {
+            max-width: 800px;
+            margin: 20px auto 60px;
+            padding: 0 20px;
+        }
+
+        .doc-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* カードデザイン */
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* アクションボタン（解約用） */
+        .action-btn {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 30px auto;
+            background-color: #757575; /* 解約などのネガティブアクションは少し落ち着いた色にする場合も多いですが、今回は視認性重視でグレーまたはメイン色 */
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0, 0.2);
+            transition: 0.3s;
+        }
+        
+        .action-btn:hover {
+            background-color: #555;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* 注意事項ボックス */
+        .notice-box {
+            background-color: var(--warning-bg);
+            border: 1px solid var(--warning-border);
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .notice-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #f57f17;
+            display: flex;
+            align-items: center;
+        }
+
+        .notice-title::before {
+            content: "📌";
+            margin-right: 10px;
+        }
+
+        .notice-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .notice-list li {
+            margin-bottom: 10px;
+        }
+
+        /* 締切強調 */
+        .deadline-highlight {
+            font-weight: bold;
+            color: var(--danger-color);
+            background-color: rgba(255,255,255,0.7);
+            padding: 0 4px;
+        }
+
+        /* お問い合わせエリア */
+        .contact-area {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <a href="index.html" style="display:flex; align-items:center; color:inherit;">
+                <img src="500-500_マークのみ_緑.png" alt="Craft Plus Logo" class="logo-img">
+                <span>クラフトプラス サポート</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">トップへ戻る</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="index.html">トップ</a> &gt; 解約手続きについて
+    </div>
+
+    <div class="content-container">
+        <h1 class="doc-title">解約手続きについて</h1>
+        
+        <div class="card">
+            <p>クラフトプラスを解約される場合は、下記の内容（特に締切日）をご確認のうえ、専用フォームよりお手続きください。</p>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSffzk2H6bMZZ2Rs2XnDcbrIKmSFKf_TCmzGg0M8WgVuDPUwrw/viewform?usp=header" target="_blank" class="action-btn">
+                解約申請フォームへ
+            </a>
+
+            <div class="notice-box">
+                <div class="notice-title">ご注意ください</div>
+                <ul class="notice-list">
+                    <li>
+                        申請の締切は、<strong>解約を希望される月の<span class="deadline-highlight">当月20日まで</span></strong>です。
+                        <ul style="margin-top: 5px; font-size: 0.95rem; color:#555;">
+                            <li>例：<strong>10月末でのご利用終了</strong>をご希望の場合<br>
+                                &rarr; <span class="deadline-highlight">10月20日まで</span>に申請をお願いいたします。
+                            </li>
+                            <li>締切を過ぎた場合、翌月末での解約となります。</li>
+                        </ul>
+                    </li>
+                    <li>月途中での解約申請であっても、日割りでの返金は承っておりません。</li>
+                    <li>申請後、担当者より確認のご連絡を差し上げます。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contact-area">
+            <p>ご不明な点があれば、<a href="https://docs.google.com/forms/d/e/1FAIpQLScLtgEMQA6dt01u-anSSbHF6BgqVYT6ehr5jj7oOuJMhDT3xQ/viewform?usp=header" target="_blank">お問い合わせフォーム</a>までお気軽にお問い合わせください。</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

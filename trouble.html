@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トラブル対応マニュアル | クラフトプラス サポート</title>
+    <style>
+        /* 共通設定 */
+        :root {
+            --primary-color: #00B050;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* パンくずリスト */
+        .breadcrumbs {
+            max-width: 800px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* メインコンテンツ */
+        .content-container {
+            max-width: 800px;
+            margin: 20px auto 60px;
+            padding: 0 20px;
+        }
+
+        .doc-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* トグル（アコーディオン）スタイル */
+        details {
+            background: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        details[open] {
+            border-color: var(--primary-color);
+        }
+
+        summary {
+            padding: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            list-style: none; /* デフォルトの矢印を消す */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        /* カスタム矢印 */
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: normal;
+            transition: 0.2s;
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid #eee;
+            background-color: #fcfcfc;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg); /* +を×にするアニメーション */
+        }
+
+        /* 詳細コンテンツ */
+        .details-content {
+            padding: 20px;
+            background-color: white;
+        }
+
+        .details-content ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        
+        .details-content li {
+            margin-bottom: 10px;
+        }
+
+        .sub-list {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            list-style-type: circle;
+            color: #555;
+        }
+
+        /* 問い合わせエリア */
+        .contact-area {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border: 1px solid #c8e6c9;
+            text-align: center;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 600px) {
+            summary {
+                font-size: 1rem;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <a href="index.html" style="display:flex; align-items:center; color:inherit;">
+                <img src="500-500_マークのみ_緑.png" alt="Craft Plus Logo" class="logo-img">
+                <span>クラフトプラス サポート</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">トップへ戻る</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="index.html">トップ</a> &gt; トラブル対応マニュアル
+    </div>
+
+    <div class="content-container">
+        <h1 class="doc-title">トラブル対応マニュアル</h1>
+        
+        <p>このページでは、クラフトプラスの授業中や準備時に起こりうる代表的なトラブルへの対応方法をまとめています。<br>
+        以下の各項目をクリック（タップ）すると、詳細な対応手順が表示されます。</p>
+
+        <details>
+            <summary>データを消してしまった</summary>
+            <div class="details-content">
+                <ul>
+                    <li>ワールドのデータが消えた場合、まずは同じアカウントで再ログインして「自分のワールド」一覧を確認してください。</li>
+                    <li>クラフトプラスの教材は何度でも再インポートが可能です。共有フォルダから <code>.mcworld</code> ファイルを再ダウンロードしてください。</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>ワールドの途中からやりたい</summary>
+            <div class="details-content">
+                <ul>
+                    <li>同じアカウントでログインすれば、基本的には最後に終了した状態から続きが可能です。</li>
+                    <li>もし初めからになってしまった場合は、<a href="commands.html" target="_blank">よく使うコマンド一覧</a>に記載してある「<strong>強制クリアコマンド</strong>」を使用してスタートしたいステージまでスキップしてください。</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>ステージが始まらない</summary>
+            <div class="details-content">
+                <ul>
+                    <li><strong>前のステージが正常に終了していない可能性があります</strong>
+                        <ul class="sub-list">
+                            <li>前ステージの終了が次ステージの開始条件になっています。</li>
+                            <li><a href="commands.html" target="_blank">よく使うコマンド一覧</a>に記載してある「強制スタートコマンド」を使用して、ステージを手動で開始してください。</li>
+                        </ul>
+                    </li>
+                    <li><strong>一時的に応答を停止している可能性があります</strong>
+                        <ul class="sub-list">
+                            <li>処理が一時的に止まっている可能性があります。</li>
+                            <li>一度ワールドから出て、再度入り直すことで改善されることがあります。</li>
+                        </ul>
+                    </li>
+                    <li><strong>ワールドのバグの可能性があります</strong>
+                        <ul class="sub-list">
+                            <li>強制スタートコマンドを使用してください。</li>
+                            <li>また、お手数ですが<a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank">バグ・不具合報告フォーム</a>からご報告をお願いいたします。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>正解判定が出ない</summary>
+            <div class="details-content">
+                <ul>
+                    <li>プログラムが正しいかを確認してください。</li>
+                    <li>プログラムが正しい場合はワールドのバグの可能性があります。
+                        <ul class="sub-list">
+                            <li><a href="commands.html" target="_blank">よく使うコマンド一覧</a>を参照して一時的に対処してください。</li>
+                            <li>お手数ですが<a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank">バグ・不具合報告フォーム</a>から報告をお願いいたします。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>マイクラが落ちた</summary>
+            <div class="details-content">
+                <ul>
+                    <li>端末スペックや通信環境が原因となることが多いです。</li>
+                    <li>起動中の他アプリを終了し、端末を再起動してから再度ログインしてください。</li>
+                </ul>
+            </div>
+        </details>
+
+        <div class="contact-area">
+            <h3>解決しませんでしたか？</h3>
+            <p>ご不明な点がある場合は、お問い合わせフォームへご連絡ください。</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScLtgEMQA6dt01u-anSSbHF6BgqVYT6ehr5jj7oOuJMhDT3xQ/viewform?usp=header" target="_blank" style="font-weight: bold; color:#2e7d32;">
+                お問い合わせフォームへ &rarr;
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

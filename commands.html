@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>よく使うコマンド一覧 | クラフトプラス サポート</title>
+    <style>
+        /* 共通設定 */
+        :root {
+            --primary-color: #00B050;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --code-bg: #f4f4f4;
+            --code-text: #d63384;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* パンくずリスト */
+        .breadcrumbs {
+            max-width: 900px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* メインコンテンツ */
+        .content-container {
+            max-width: 900px;
+            margin: 20px auto 60px;
+            padding: 0 20px;
+        }
+
+        .doc-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* セクションスタイル */
+        section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 5px solid var(--primary-color);
+            color: #222;
+        }
+
+        /* テーブルスタイル */
+        .table-wrapper {
+            overflow-x: auto; /* モバイルで横スクロール可能に */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            min-width: 500px; /* スクロール発生幅 */
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+            width: 40%;
+            color: #555;
+        }
+
+        /* コマンドコードの装飾 */
+        code {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, "Andale Mono", monospace;
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+        /* 注意書きボックス */
+        .note {
+            font-size: 0.9rem;
+            color: #555;
+            background-color: #fff8e1; /* 薄い黄色 */
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ffe082;
+            margin-top: 10px;
+        }
+
+        .note strong {
+            color: #e65100;
+        }
+
+        /* コンタクトリンク */
+        .contact-box {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed #ccc;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 600px) {
+            section {
+                padding: 20px;
+            }
+            code {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <a href="index.html" style="display:flex; align-items:center; color:inherit;">
+                <img src="500-500_マークのみ_緑.png" alt="Craft Plus Logo" class="logo-img">
+                <span>クラフトプラス サポート</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">トップへ戻る</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="index.html">トップ</a> &gt; よく使うコマンド一覧
+    </div>
+
+    <div class="content-container">
+        <h1 class="doc-title">よく使うコマンド一覧</h1>
+        
+        <section>
+            <h2>プレイヤーをテレポートさせたいとき</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>コマンド</th>
+                            <th>使用状況・用途</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/tp @s @c</code></td>
+                            <td>プレイヤーをエージェントの元にテレポートさせる</td>
+                        </tr>
+                        <tr>
+                            <td><code>/tp @s 0 0 0</code></td>
+                            <td>プレイヤーをワールド座標0 0 0にテレポートさせる</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>ゲームモードを変更したいとき</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>コマンド</th>
+                            <th>使用状況・用途</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/gamemode c</code></td>
+                            <td>ゲームモードをクリエイティブに変更する</td>
+                        </tr>
+                        <tr>
+                            <td><code>/gamemode d</code></td>
+                            <td>ゲームモードをデフォルトに変更する</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note">
+                <strong>※注意：</strong><br>
+                クラフトプラスではすべての教材でプレイヤーに<code>classmode</code>タグが付与されているため、ゲームモードを変更する際はclassmodeタグを取り外してから行ってください。
+            </div>
+        </section>
+
+        <section>
+            <h2>classmodeタグの付与・取り外しをしたいとき</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>コマンド</th>
+                            <th>使用状況・用途</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/tag @s add classmode</code></td>
+                            <td>プレイヤーにclassmodeタグを付与する</td>
+                        </tr>
+                        <tr>
+                            <td><code>/tag @s remove classmode</code></td>
+                            <td>プレイヤーについているclassmodeタグを取り外す</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>ワールドにバグが発生したとき</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>コマンド</th>
+                            <th>使用状況・用途</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/function stage1/clear</code></td>
+                            <td>ステージ１を強制的にクリアする</td>
+                        </tr>
+                        <tr>
+                            <td><code>/function stage1/clear_substage</code></td>
+                            <td>ステージ１のサブステージを強制的にクリアする</td>
+                        </tr>
+                        <tr>
+                            <td><code>/function stage1/init</code></td>
+                            <td>ステージ１の状態を初期化する</td>
+                        </tr>
+                        <tr>
+                            <td><code>/function stage1/reset</code></td>
+                            <td>サブステージの状態を初期位置に戻す</td>
+                        </tr>
+                        <tr>
+                            <td><code>/function stage1/start</code></td>
+                            <td>ステージ１を強制的にスタートさせる</td>
+                        </tr>
+                        <tr>
+                            <td><code>/function stage1/start_substage</code></td>
+                            <td>ステージ１のサブステージを強制的にスタートさせる</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p style="font-size: 0.9rem; margin-top: 10px;">
+                ※ 各コマンドの <code>stage</code> の後ろの数字は、問題が起きたステージ番号に適宜変更してください。
+            </p>
+
+            <div class="contact-box">
+                <p>バグが発生した時は、お手数ですが以下のフォームからご報告をお願いいたします。</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank" style="font-weight: bold;">
+                    バグ・不具合報告フォーム &rarr;
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
