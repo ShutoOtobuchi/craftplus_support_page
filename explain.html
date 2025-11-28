@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クラフトプラスとは？ | クラフトプラス サポート</title>
+    <style>
+        /* --- 共通設定 (index.htmlと統一) --- */
+        :root {
+            --primary-color: #00B050;
+            --primary-light: #4cd186;
+            --text-color: #333333;
+            --bg-color: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+
+        /* --- ヘッダー --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        .logo-img { height: 36px; margin-right: 12px; }
+
+        .header-link {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #666;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+        .header-link:hover { background-color: #f0f0f0; color: var(--primary-color); }
+
+        /* --- 1. Top Hero Section --- */
+        .about-hero {
+            position: relative;
+            background-color: white;
+            padding: 60px 20px 50px; 
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .hero-main {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .hero-logo-text {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.2;
+            margin-bottom: 10px;
+            letter-spacing: 0.05em;
+        }
+        .hero-sub {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #76bc21;
+            margin-bottom: 30px;
+            letter-spacing: 0.1em;
+        }
+
+        /* 縦書きの帯 */
+        .vertical-banner {
+            background-color: #55b570; /* 少し落ち着いた緑 */
+            color: white;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            padding: 20px 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 300px; /* 長さ調整 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        /* 背景画像エリア (今回はイメージとしてdivで表現) */
+        .hero-image-area {
+            width: 100%;
+            height: 500px;
+            background-color: #eee;
+            border-radius: 20px;
+            margin-top: 10px;
+            background-image: url('five_story.png'); /* 添付画像を背景に設定 */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- 2. About Section --- */
+        .section-about {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #FAFAFA;
+        }
+
+        .section-label {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin: 0 0 40px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::before, .section-title::after {
+            content: "+";
+            color: #bcebc8;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .section-title::before { left: -20px; }
+        .section-title::after { right: -20px; }
+
+        .concept-banner {
+            background: linear-gradient(90deg, #5dc478, #4caf50);
+            color: white;
+            padding: 20px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            transform: skewX(-10deg); /* 斜めにする */
+            max-width: 800px;
+            margin: 0 auto 40px;
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.2);
+        }
+        .concept-banner span {
+            display: block;
+            transform: skewX(10deg); /* 文字の傾きを戻す */
+        }
+
+        .about-desc {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 1rem;
+            color: #555;
+            line-height: 2;
+        }
+
+        /* --- 3. Feature Section (Green Checkered Background) --- */
+        .section-feature {
+            /* 緑色のチェック柄背景の再現 */
+            background-color: #4caf50;
+            background-image:
+                linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%, rgba(255,255,255,0.1)),
+                linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%, rgba(255,255,255,0.1));
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            
+            padding: 80px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .section-feature .section-label {
+            margin-bottom: 5px;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .feature-title-white {
+            color: white;
+            font-size: 1.8rem;
+            margin: 0 0 40px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feature-item {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            text-align: left;
+        }
+
+        .feature-img-box {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            background-color: #fff;
+        }
+        .feature-img-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .feature-head {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: baseline;
+        }
+        .feature-num {
+            font-size: 3rem;
+            font-style: italic;
+            margin-right: 15px;
+            line-height: 1;
+        }
+        .feature-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* --- 4. Fee Section --- */
+        .section-fee {
+            padding: 80px 20px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .fee-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .fee-card {
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .fee-header {
+            background-color: #6fdc8c;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            /* チェック柄をうっすら入れる */
+            background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 10px 10px;
+        }
+        
+        .fee-header-sub {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+
+        .fee-body {
+            padding: 30px;
+            background-color: white;
+        }
+
+        .fee-price {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-family: "Arial", sans-serif;
+            font-style: italic;
+            line-height: 1;
+        }
+        .fee-price span { font-size: 1rem; font-style: normal; color: #888; margin-left: 5px; }
+        .fee-strike {
+            text-decoration: line-through;
+            color: #aaa;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .fee-note {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 40px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #333;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .hero-logo-text { font-size: 2rem; }
+            .vertical-banner { display: none; /* スマホでは帯を消す、または配置変更 */ }
+            .feature-head { flex-direction: column; }
+            .concept-banner { transform: none; border-radius: 8px; }
+            .concept-banner span { transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <header>
+        <div class="logo-area">
+            <a href="index.html" style="display:flex; align-items:center; color:inherit;">
+                <img src="500-500_マークのみ_緑.png" alt="Craft Plus Logo" class="logo-img">
+                <span>クラフトプラス サポート</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="header-link">トップへ戻る</a>
+        </nav>
+    </header>
+
+    <!-- 1. Hero -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <div class="hero-main">
+                <div class="hero-logo-text">
+                    CRAFT PLUS<br>
+                    <span style="font-size: 1rem; color:#333; letter-spacing:0.2em;">GAMES CAN BE LEARNING</span>
+                </div>
+                
+                <!-- 縦書き帯 (PC表示時) -->
+                <div class="vertical-banner">
+                    いつものマイクラに<br>
+                    「学び」をプラス！
+                </div>
+
+                <div class="hero-image-area">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About -->
+    <section class="section-about">
+        <span class="section-label">About</span>
+        <h2 class="section-title">クラフトプラスとは？</h2>
+
+        <div class="concept-banner">
+            <span>
+                ゲームの楽しさに学びをプラス。<br>
+                新感覚マイクラ体験！
+            </span>
+        </div>
+
+        <div class="about-desc">
+            <p>クラフトプラスは、人気ゲーム「マインクラフト」を活用して、学びと遊びが両立できるオンラインサブスクリプションサービスです。</p>
+            <p>クラフトプラス会員は、マイクラの世界で楽しみながら学べるオリジナルの学習コンテンツ（ドリル・ワールドなど）を利用できます。</p>
+        </div>
+    </section>
+
+    <!-- 3. Feature -->
+    <section class="section-feature">
+        <span class="section-label">Feature</span>
+        <h2 class="feature-title-white">- 特徴 -</h2>
+
+        <!-- Feature 01 -->
+        <div class="feature-item">
+            <div class="feature-img-box">
+                <img src="mee_top.png" alt="オリジナルワールド">
+            </div>
+            <div class="feature-head">
+                <span class="feature-num">01 /</span>
+                <span>オリジナルワールドを使った教材</span>
+            </div>
+            <p class="feature-text">
+                クラフトプラス会員は、学習支援コンテンツの一部として、教育目的で制作されたオリジナルのマインクラフトワールドを利用できます。<br>
+                学びを深める補助教材として、子どもたちの好奇心や創造力を引き出す設計になっています。
+            </p>
+        </div>
+
+        <!-- Feature 02 -->
+        <div class="feature-item">
+            <div class="feature-img-box">
+                <!-- ドリルの画像 -->
+                <img src="pdf_drill.png" alt="学習ドリル">
+            </div>
+            <div class="feature-head">
+                <span class="feature-num">02 /</span>
+                <span>学習ドリルを提供！</span>
+            </div>
+            <p class="feature-text">
+                学習内容の理解を深めるためのドリル教材（PDF）を、不定期で配信しています。<br>
+                楽しさと集中力を両立させた、メリハリのある学びの環境を目指しています。
+            </p>
+        </div>
+
+        <!-- Feature 03 -->
+        <div class="feature-item">
+            <div class="feature-img-box">
+                <img src="code_editer.png" alt="教育版マインクラフト">
+            </div>
+            <div class="feature-head">
+                <span class="feature-num">03 /</span>
+                <span>教育版マインクラフトの利用</span>
+            </div>
+            <p class="feature-text">
+                クラフトプラス会員なら、追加料金なしで「マインクラフト教育版」を利用できます。教育コンテンツを活用しつつ、通常のゲームプレイも存分に楽しめます。
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. Fee -->
+    <section class="section-fee">
+
+                ※本サービスはマインクラフトの公式製品ではありません。Mojang社、Microsoft社は本サービスに対して一切の責任はありません。
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2025 Craft Plus Support. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
