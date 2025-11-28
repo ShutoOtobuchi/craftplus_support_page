@@ -91,6 +91,14 @@
             gap: 30px;
         }
 
+        .menu-icon{
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 10px;
+            object-fit: contain;
+        }
+
         /* カードデザイン */
         .card {
             background: var(--card-bg);
@@ -157,6 +165,70 @@
             font-size: 0.85rem;
         }
 
+        .notice-board {
+            max-width: 1000px;
+            margin: -10px auto 30px;
+            padding: 20px 30px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+            border-left: 6px solid var(--primary-color);
+            min-height: 110px; /* about half the card height */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .notice-board .notice-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .notice-board h2 {
+            margin: 0;
+            font-size: 1.2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .notice-board .notice-label {
+            font-size: 0.75rem;
+            color: #999;
+            letter-spacing: 0.2em;
+            margin-left: 12px;
+        }
+
+        .notice-board a.notice-link {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .notice-board ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px 30px;
+        }
+
+        .notice-board li {
+            font-size: 0.95rem;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .notice-board li::before {
+            content: "»";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
         /* フッター */
         footer {
             text-align: center;
@@ -175,7 +247,7 @@
             <span>クラフトプラス サポート</span>
         </div>
         <nav>
-            <a href="https://craft-plus.jp/" target="_blank">公式サイトへ戻る</a>
+            <!-- <a href="https://craft-plus.jp/" target="_blank">公式サイトへ戻る</a> -->
         </nav>
     </header>
 
@@ -189,27 +261,33 @@
         </div>
     </section>
 
+    <section class="notice-board" aria-label="最新のお知らせ">
+        <div class="notice-header">
+            <div>
+                <span>新着情報</span><span class="notice-label">NEW ARRIVALS</span>
+            </div>
+        </div>
+        <ul>
+            <li>海賊シリーズの対象学年・所要時間目安を追加しました。</li>
+            <li>海賊シリーズ「まとめテスト」の解答集を追加しました。</li>
+            <li>海賊シリーズに「復習 K-4」を追加しました。</li>
+            <li>海賊シリーズ「順次処理 B-3」を廃止しました。</li>
+        </ul>
+    </section>
+
     <div class="container">
 
         <article class="card">
-            <h2>🆕 お知らせ</h2>
-            <p>教材更新や申請締切などの最新情報は、こちらで随時ご案内します。</p>
-            <ul class="notice-list">
-                <li><span class="notice-date">毎月のご案内</span>利用人数の変更申請は<strong>毎月20日 23:59</strong>までが締切です。最新人数をまとめてご連絡ください。</li>
-            </ul>
-        </article>
-
-        <article class="card">
-            <h2>🔰 はじめての方・導入検討中の方</h2>
+            <h2><img src="icon_beginner.png" alt="" class="menu-icon">はじめての方・導入検討中の方</h2>
             <p>マインクラフトを用いてプログラミング・理科・歴史などを学べる教材を提供しています。</p>
             <ul class="link-list">
-                <li><a href="https://craft-plus.jp/">クラフトプラスとは？</a></li>
+                <li><a href="explain.html">クラフトプラスとは？</a></li>
                 <li><a href="flow.html">ご契約までの流れ</a></li>
             </ul>
         </article>
 
         <article class="card">
-            <h2>📖 ガイド・マニュアル</h2>
+            <h2><img src="icon_manual.png" alt="" class="menu-icon"> ガイド・マニュアル</h2>
             <p>使い方の基本からトラブルシューティングまで。</p>
             <ul class="link-list">
                 <li><a href="guide.html">クラフトプラス スタートガイド</a></li>
@@ -219,7 +297,7 @@
         </article>
 
         <article class="card">
-            <h2>💳 契約・決済</h2>
+            <h2><img src="icon_payment.png" alt="" class="menu-icon"> 契約・決済</h2>
             <p>プランの変更や請求に関する情報はこちら。</p>
             <ul class="link-list">
                 <li><a href="users.html">利用人数の管理</a></li>
@@ -229,7 +307,7 @@
         </article>
 
         <article class="card">
-            <h2>✉️ サポート・連絡</h2>
+            <h2><img src="icon_support.png" alt="" class="menu-icon"> サポート・連絡</h2>
             <p>お困りの際はこちらからお問い合わせください。</p>
             <ul class="link-list">
                 <li><a href="faq.html">よくあるご質問 (FAQ)</a></li>
