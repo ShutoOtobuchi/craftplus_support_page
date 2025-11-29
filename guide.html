@@ -151,6 +151,81 @@
             background-color: #008a3e;
         }
 
+        /* ワールドインポートレイアウト */
+        .import-wrapper {
+            margin-top: 25px;
+        }
+        .import-steps {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .import-steps li {
+            position: static;
+            padding: clamp(18px, 3vw, 28px) 0;
+            margin: 0;
+            border-bottom: 1px solid #e1f1e6;
+            counter-increment: step;
+        }
+        .import-steps li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .import-steps li::before {
+            display: none;
+            counter-increment: none;
+        }
+        .import-card {
+            display: flex;
+            align-items: stretch;
+            gap: clamp(18px, 4vw, 32px);
+            padding: 0;
+        }
+        .import-card__text {
+            flex: 1 1 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .import-card__media {
+            flex: 1 1 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .import-card__media img {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+        .import-steps .step-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+        .import-steps .step-info::before {
+            content: counter(step);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .import-steps .step-info p {
+            margin: 0;
+        }
+
         /* 手順リスト（番号付き） */
         ol.steps {
             counter-reset: step;
@@ -215,9 +290,28 @@
         }
 
         /* レスポンシブ */
+        @media (max-width: 768px) {
+            .import-card {
+                flex-direction: column;
+            }
+            .import-card__text,
+            .import-card__media {
+                flex: 1 1 100%;
+            }
+            .import-card__media {
+                justify-content: flex-start;
+            }
+        }
+
         @media (max-width: 600px) {
             section {
                 padding: 20px;
+            }
+            .import-steps li {
+                align-items: center;
+            }
+            .import-card__media {
+                justify-content: center;
             }
         }
     </style>
@@ -269,7 +363,7 @@
             <strong>● ご自身でアカウントを作成する場合</strong>
             <p style="margin-top:5px;">Microsoft 365アカウントを新規作成していただき、作成したアカウント情報でログインしてください。</p>
             
-            <strong>● オプションでアカウント発行を申し込んだ場合</strong>
+            <strong>● アカウント発行オプションを申し込んだ場合</strong>
             <p style="margin-top:5px;">アカウント発行オプションを選択された方には、<strong>専用の「マイクラ用メールアドレス」と「パスワード」</strong>を個別にお送りいたします。受け取ったアカウント情報を使用して、ログインできるか確認してください。</p>
             
             <p class="note">※ Microsoft 365 アカウント情報（マイクラ用メールアドレスとパスワード）は、申込団体の管理者の方へ一括でお送りします。必要に応じて各利用者に配布してください。</p>
@@ -282,17 +376,77 @@
             <a href="https://drive.google.com/drive/folders/1x73BRYIY2Zr0C2oegONynI3QIRy44hoi?usp=sharing" target="_blank" class="btn-link">教材ダウンロードフォルダ (Google Drive)</a>
             
             <div class="note">
-                <p>※ このリンクは、申込時にご連絡いただいたメールアドレスに共有設定されています。必ずそのGoogleアカウントでログインした状態でアクセスしてください。</p>
-                <p>※ ドリル<code>（PDF）</code>のみでワールドデータ<code>（.mcworld）</code>は無い教材もございます。</p>
+                <p>※ この教材ダウンロードフォルダは、申込時にご連絡いただいたメールアドレスに共有設定されています。必ずそのGoogleアカウントでログインした状態でアクセスしてください。</p>
+                <p>※ ドリル<code>（PDF）</code>のみでワールドデータ<code>（.mcworld）</code>が無い教材もございます。</p>
             </div>
 
-            <h3>ワールドのインポートの方法</h3>
-            <ol class="steps">
-                <li>共有フォルダから <code>.mcworld</code> ファイルをダウンロード</li>
-                <li>Minecraft Education Editionを起動</li>
-                <li>ホーム画面の「インポート」→ <code>.mcworld</code> ファイルを選択</li>
-                <li>ワールドがゲーム内に取り込まれます</li>
-            </ol>
+            <div class="import-wrapper">
+                <div class="import-text">
+                    <h3>ワールドのインポートの方法</h3>
+                    <ol class="steps import-steps">
+                        <li>
+                            <div class="import-card">
+                                <div class="import-card__text">
+                                    <div class="step-info">
+                                        <p>共有フォルダから <code>.mcworld</code> ファイルをダウンロード</p>
+                                    </div>
+                                </div>
+                                <div class="import-card__media">
+                                    <img src="mcworld.png" alt="Google Driveから.mcworldファイルをダウンロードする様子">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="import-card">
+                                <div class="import-card__text">
+                                    <div class="step-info">
+                                        <p>Minecraft Education Editionを起動</p>
+                                    </div>
+                                </div>
+                                <div class="import-card__media">
+                                    <img src="mee_top.png" alt="Minecraft Education Editionのトップ画面">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="import-card">
+                                <div class="import-card__text">
+                                    <div class="step-info">
+                                        <p>「インポート」をクリックして使用する <code>.mcworld</code> ファイルを選択</p>
+                                    </div>
+                                </div>
+                                <div class="import-card__media">
+                                    <img src="import.png" alt="インポートボタンとファイル選択画面">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="import-card">
+                                <div class="import-card__text">
+                                    <div class="step-info">
+                                        <p>ワールドインポート完了後、「作成した世界」をクリック</p>
+                                    </div>
+                                </div>
+                                <div class="import-card__media">
+                                    <img src="open_world.png" alt="インポート直後のワールド一覧画面">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="import-card">
+                                <div class="import-card__text">
+                                    <div class="step-info">
+                                        <p>使用するワールドをクリックして開始</p>
+                                    </div>
+                                </div>
+                                <div class="import-card__media">
+                                    <img src="world_icon.png" alt="作成した世界のアイコン">
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
         </section>
 
         <section>
@@ -305,12 +459,14 @@
                 <li>課題に取り組み、ステージを進行する</li>
                 <li>授業後はログアウトしてください</li>
             </ol>
-            <p class="note">※ 同じアカウントでログインすれば、ワールドの状態は保存されており、次回は続きから再開可能です。</p>
+            <p class="note">※ 同じアカウントでログインすると、ワールドの状態は保存されており、続きから再開可能です。</p>
 
-            <p>授業は<strong>自学自習スタイル</strong>を推奨しています。1コマあたり<strong>60分</strong>を目安に、導入（10分）→課題実施（40分）→振り返り（10分）のリズムで進行すると、進捗のばらつきが抑えやすくなります。チームで同じワールドを共有する場合も、基本は個人作業＋講師による声掛けで運用してください。</p>
+            <p>授業は<strong>自学自習スタイル</strong>を推奨しています。<br>
+            1コマあたり<strong>60分</strong>を目安に、導入（10分）→課題実施（40分）→振り返り（10分）のリズムで進行すると、進捗のばらつきが抑えやすくなります。<br>
+            チームで同じワールドを共有する場合も、基本は個人作業＋講師による声掛けで運用してください。</p>
 
             <div class="note">
-                <p>カリキュラムの完了目安や対象学年の一覧は、導入時に共有しているGoogle Driveフォルダ内のスプレッドシートにまとめています。授業計画を立てる際はそちらをご参照ください。</p>
+                <p>カリキュラムの完了目安や対象学年の一覧は、導入時に共有しているGoogle Driveフォルダ内のスプレッドシートにまとめております。授業計画を立てる際はそちらをご参照ください。</p>
             </div>
         </section>
 
@@ -329,12 +485,12 @@
 
             <div class="trouble-item">
                 <div class="trouble-question">プログラムを正しく入力しているのに正解判定が行われない</div>
-                <p>該当ステージの不具合の可能性があるので、<a href="commands.html" target="_blank">よく使うコマンド一覧</a>に記載してあるコマンドで強制的に通過してください。</p>
+                <p>該当ステージの不具合の可能性があります。<a href="commands.html" target="_blank">よく使うコマンド一覧</a>に記載してあるコマンドで強制的に通過してください。</p>
             </div>
 
             <div class="trouble-item">
                 <div class="trouble-question">マイクラが強制終了してしまう</div>
-                <p>デバイスのスペックや同時実行数が原因で落ちることがあります。不要なアプリケーションを閉じてから再起動してください。</p>
+                <p>デバイスのスペックや同時実行数が原因で落ちてしまうことがあります。不要なアプリケーションを閉じてから再起動してください。</p>
             </div>
 
             <p>あわせて <a href="trouble.html" target="_blank">トラブル対応マニュアル</a> もご参照ください。</p>
