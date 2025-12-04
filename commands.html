@@ -217,10 +217,14 @@
                     </tbody>
                 </table>
             </div>
+            <div class="note">
+                <strong>※注意：</strong><br>
+                このコマンドは、<code>/tp @目的地 @テレポートさせる対象</code>という形になっているので、状況に応じてアレンジしてください。
+            </div>
         </section>
 
         <section>
-            <h2>ゲームモードを変更したいとき</h2>
+            <h2>エージェント（ロボット）をテレポートさせたいとき</h2>
             <div class="table-wrapper">
                 <table>
                     <thead>
@@ -231,24 +235,48 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><code>/gamemode c</code></td>
-                            <td>ゲームモードをクリエイティブに変更する</td>
+                            <td><code>/tp @c @s</code></td>
+                            <td>エージェントをプレイヤーの元にテレポートさせる</td>
                         </tr>
                         <tr>
-                            <td><code>/gamemode d</code></td>
-                            <td>ゲームモードをデフォルトに変更する</td>
+                            <td><code>/tp @c 0 0 0</code></td>
+                            <td>エージェントをワールド座標0 0 0にテレポートさせる</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>ゲームモードをクリエイティブに変更したいとき</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>コマンド</th>
+                            <th>使用状況・用途</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/tag @s remove classmode</code></td>
+                            <td>プレイヤーについているclassmodeタグを取り外す</td>
+                        </tr>
+                        <tr>
+                            <td><code>/gamemode c</code></td>
+                            <td>ゲームモードをクリエイティブに変更する</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="note">
                 <strong>※注意：</strong><br>
-                クラフトプラスではすべての教材でプレイヤーに<code>classmode</code>タグが付与されているため、ゲームモードを変更する際はclassmodeタグを取り外してから行ってください。
+                クラフトプラスではすべての教材で、正誤判定やゲームモード変更の制限など授業を円滑に進めるためにプレイヤーに<code>classmode</code>タグというものを付与しています。ゲームモードを変更する際はclassmodeタグを取り外してから行ってください。
             </div>
         </section>
 
         <section>
-            <h2>classmodeタグの付与・取り外しをしたいとき</h2>
+            <h2>ゲームモードをアドベンチャーに戻したいとき</h2>
             <div class="table-wrapper">
                 <table>
                     <thead>
@@ -259,12 +287,12 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><code>/tag @s add classmode</code></td>
-                            <td>プレイヤーにclassmodeタグを付与する</td>
+                            <td><code>/gamemode d</data></code></td>
+                            <td>ゲームモードをアドベンチャーに戻す</td>
                         </tr>
                         <tr>
-                            <td><code>/tag @s remove classmode</code></td>
-                            <td>プレイヤーについているclassmodeタグを取り外す</td>
+                            <td><code>/tag @s add classmode</code></td>
+                            <td>プレイヤーにclassmodeタグを与える</td>
                         </tr>
                     </tbody>
                 </table>
