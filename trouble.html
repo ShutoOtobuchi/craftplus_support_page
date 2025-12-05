@@ -86,19 +86,37 @@
             margin-bottom: 30px;
         }
 
-        /* トグル（アコーディオン）スタイル */
-        details {
+        /* セクション */
+        .trouble-section {
+            margin-top: 40px;
+        }
+
+        .section-title {
+            background-color: #e6f4ea;
+            border-left: 6px solid var(--primary-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .accordion-list {
+            margin-top: 20px;
+        }
+
+        .accordion-list details {
             background: var(--card-bg);
             border-radius: 8px;
             margin-bottom: 15px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             overflow: hidden;
-            border: 1px solid transparent;
+            border: 2px solid transparent;
             transition: 0.2s;
         }
 
-        details[open] {
-            border-color: var(--primary-color);
+        .accordion-list details[open] {
+            border-color: #1a73e8;
         }
 
         summary {
@@ -137,19 +155,22 @@
         }
 
         .details-content ul {
-            padding-left: 20px;
+            padding-left: 1.6rem;
             margin: 0;
+            list-style-position: outside;
         }
         
         .details-content li {
             margin-bottom: 10px;
+            text-indent: 0;
         }
 
         .sub-list {
             margin-top: 5px;
             margin-bottom: 10px;
-            padding-left: 20px;
+            padding-left: 1.6rem;
             list-style-type: circle;
+            list-style-position: outside;
             color: #555;
         }
 
@@ -196,76 +217,167 @@
         <p>このページでは、授業中や準備時に起こりうる代表的なトラブルへの対応方法をまとめています。<br>
         以下の各項目をクリック（タップ）すると、詳細な対応手順が表示されます。</p>
 
-        <details>
-            <summary>データを消してしまった</summary>
-            <div class="details-content">
-                <ul>
-                    <li>ワールドのデータが消えてしまった場合、まずは同じアカウントで再度ログインして「自分のワールド」一覧を確認してください。</li>
-                    <li>クラフトプラスの教材は何度でも再インポートが可能です。共有フォルダから <code>.mcworld</code> ファイルを再度ダウンロードしてください。</li>
-                </ul>
-            </div>
-        </details>
-
-        <details>
-            <summary>ワールドの途中からやりたい</summary>
-            <div class="details-content">
-                <ul>
-                    <li>同じアカウントでログインすると、基本的には最後に終了した状態から再開することが可能です。</li>
-                    <li>もし初めからになってしまった場合は、<a href="commands.html" target="_blank">よく使うコマンド一覧</a>に記載してある「<strong>強制クリアコマンド</strong>」を使用してスタートしたいステージまでスキップしてください。</li>
-                </ul>
-            </div>
-        </details>
-
-        <details>
-            <summary>ステージが始まらない</summary>
-            <div class="details-content">
-                <ul>
-                    <li><strong>前のステージが正常に終了していない可能性</strong>
-                        <ul class="sub-list">
-                            <li>前ステージの終了が次ステージの開始条件になっています。</li>
-                            <li><a href="commands.html" target="_blank">よく使うコマンド一覧</a>に記載してある「強制スタートコマンド」を使用して、ステージを手動で開始してください。</li>
+        <section class="trouble-section" id="login-account">
+            <div class="section-title">ログイン・アカウント関係</div>
+            <div class="accordion-list">
+                <details>
+                    <summary>ログインできない / サインインエラーが出る</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>入力したメールアドレス・パスワードに誤りがないかご確認ください（半角/全角、大文字/小文字、前後の不要なスペースなど）。</li>
+                            <li>ネットワーク接続が安定しているか確認してください。</li>
+                            <li>一度教育版マインクラフトを再起動してみてください。</li>
                         </ul>
-                    </li>
-                    <li><strong>一時的に応答を停止している可能性</strong>
-                        <ul class="sub-list">
-                            <li>処理が一時的に止まっている可能性があります。</li>
-                            <li>一度ワールドから出て、再度入り直すことで改善されることがあります。</li>
+                    </div>
+                </details>
+                <details>
+                    <summary>パスワードを忘れてしまった</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>申込の際に、アカウント発行オプションを選択された方は、契約時にお送りしたgoogleスプレッドシートをご確認ください。</li>
                         </ul>
-                    </li>
-                    <li><strong>ワールドのバグの可能性</strong>
-                        <ul class="sub-list">
-                            <li>強制スタートコマンドを使用してください。</li>
-                            <li>また、お手数ですが<a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank">バグ・不具合報告フォーム</a>からご報告をお願いいたします。</li>
+                    </div>
+                </details>
+                <details>
+                    <summary>「アカウントにアクセスできません」と表示される</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>ライセンスの有効期限を確認してください。</li>
+                            <li>以前使用していた別のアカウント情報が残っている可能性があるため、一度サインアウトして、正しいアカウントで入り直してください。</li>
                         </ul>
-                    </li>
-                </ul>
+                    </div>
+                </details>
             </div>
-        </details>
+        </section>
 
-        <details>
-            <summary>正解判定が出ない</summary>
-            <div class="details-content">
-                <ul>
-                    <li>プログラムが正しいかを確認してください。</li>
-                    <li>プログラムが正しい場合はワールドのバグの可能性があります。
-                        <ul class="sub-list">
-                            <li><a href="commands.html" target="_blank">よく使うコマンド一覧</a>を参照して一時的に対処してください。</li>
-                            <li>お手数ですが<a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank">バグ・不具合報告フォーム</a>から報告をお願いいたします。</li>
+        <section class="trouble-section" id="world-progress">
+            <div class="section-title">ワールド・進行関係</div>
+            <div class="accordion-list">
+                <details>
+                    <summary>ワールドデータを消してしまった</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>ワールドのデータが消えてしまった場合、まずは同じアカウントで再度ログインして「自分のワールド」一覧を確認してください。</li>
+                            <li>クラフトプラスの教材は何度でも再インポートが可能です。共有フォルダから <code>.mcworld</code> ファイルを再度ダウンロードしてください。</li>
                         </ul>
-                    </li>
-                </ul>
-            </div>
-        </details>
+                    </div>
+                </details>
+                <details>
+                    <summary>前回の授業の続きからやりたい</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>同じアカウントでログインして、続きから行いたいワールドに入ると、前回終了したところから再開することが可能です。</li>
+                            <li>もし初めからになってしまった場合は、<a href="commands.html" target="_blank">よく使うコマンド一覧</a>に記載してある「<strong>強制クリアコマンド</strong>」を使用してスタートしたいステージまでスキップしてください。</li>
+                        </ul>
+                    </div>
+                </details>
+                <details>
+                    <summary>前のステージをクリアしたのに、次のステージが始まらない</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li><strong>前のステージが正常に終了していない可能性</strong>
+                                <ul class="sub-list">
+                                    <li>前ステージの終了が次ステージの開始条件になっています。</li>
+                                    <li><a href="commands.html" target="_blank">よく使うコマンド一覧</a>に記載してある「強制スタートコマンド」を使用して、ステージを手動で開始してください。</li>
+                                </ul>
+                            </li>
+                            <li><strong>一時的に応答を停止している可能性</strong>
+                                <ul class="sub-list">
+                                    <li>処理が一時的に止まっている可能性があります。</li>
+                                    <li>一度ワールドから出て、再度入り直すことで改善されることがあります。</li>
+                                </ul>
+                            </li>
+                            <li><strong>ワールドのバグの可能性</strong>
+                                <ul class="sub-list">
+                                    <li>強制スタートコマンドを使用してください。</li>
+                                    <li>また、お手数ですが<a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank">バグ・不具合報告フォーム</a>からご報告をお願いいたします。</li>
+                                </ul>
+                            </li>
+                            <li><strong>先に進めなくなってしまった場合</strong>
+                                <ul class="sub-list">
+                                    <li>ワールドのバグが発生しているため<a href="commands.html" target="_blank">よく使うコマンド一覧</a>を参考に一時的にゲームモードをクリエイティブに変更し、ワールドを破壊して次ステージのスタート位置まで進めてください。</li>
+                                    <li>また、お手数ですが<a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank">バグ・不具合報告フォーム</a>からご報告をお願いいたします。</li>
 
-        <details>
-            <summary>マイクラが落ちた</summary>
-            <div class="details-content">
-                <ul>
-                    <li>端末スペックや通信環境が原因となることが多いです。</li>
-                    <li>起動中の他アプリを終了し、端末を再起動してから再度ログインしてください。</li>
-                </ul>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </details>
+                <details>
+                    <summary>正誤判定が行われない</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>プログラムが正しいかを確認してください。</li>
+                            <li>プログラムが正しい場合はワールドのバグの可能性があります。
+                                <ul class="sub-list">
+                                    <li><a href="commands.html" target="_blank">よく使うコマンド一覧</a>にある「サブステージを強制的にクリアする」コマンドを使用して先に進んでください。</li>
+                                    <li>お手数ですが<a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank">バグ・不具合報告フォーム</a>から報告をお願いいたします。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </details>
             </div>
-        </details>
+        </section>
+
+        <section class="trouble-section" id="programming-operation">
+            <div class="section-title">プログラミング・操作関係</div>
+            <div class="accordion-list">
+                <details>
+                    <summary>エージェント（ロボット）が動かない / どこにいるかわからない</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>エージェントが見当たらない場合は、<a href="commands.html" target="_blank">よく使うコマンド一覧</a>にある「エージェントをテレポートさせたいとき」コマンドを使用して、プレイヤーの位置に呼び出してください。</li>
+                        </ul>
+                    </div>
+                </details>
+                <details>
+                    <summary>プレイヤーが動けなくなった/視点が勝手に動く</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>キーボードの入力モードが「全角（日本語）」になっていないか確認してください。「半角英数」に戻すと直る事があります。</li>
+                            <li>マウスやタッチパッドが正しく接続されているか確認してください。</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section class="trouble-section" id="system-environment">
+            <div class="section-title">システム・動作環境</div>
+            <div class="accordion-list">
+                <details>
+                    <summary>教育版マインクラフトが落ちた / 強制終了した</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>端末スペックや通信環境が原因となることが多いです。</li>
+                            <li>起動中の他アプリ（ブラウザや動画サイトなど）を終了し、メモリを解放してください。</li>
+                            <li>起動中の他アプリを終了し、端末を再起動してから再度ログインしてください。</li>
+                        </ul>
+                    </div>
+                </details>
+                <details>
+                    <summary>動きが重い / カクカクする</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>設定&gt;ビデオ&gt;「描画距離」の数値を下げてください。</li>
+                            <li>設定&gt;ビデオ&gt;「グラフィックス」を「優先処理」に変更してください。</li>
+                            <li>iPadなどの場合、バッテリー残量が少ないと動作が制限されることがあります。充電しながらの使用を検討してください。</li>
+                        </ul>
+                    </div>
+                </details>
+                <details>
+                    <summary>ワールドのインポートに失敗する</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>ダウンロードしたワールドデータが破損している可能性があります。一度ワールドデータを削除し、再度ダウンロードしてください。</li>
+                            <li>端末のストレージ空き容量が不足していないか確認してください。</li>
+                            <li>教育版マインクラフトのアプリが最新のバージョンか確認してください。</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </section>
 
         <div class="contact-area">
             <h3>解決しませんでしたか？</h3>
