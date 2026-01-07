@@ -149,7 +149,7 @@
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
-            margin: 10px 0;
+            margin: 5px 0 20px 0;
             font-weight: bold;
         }
         .btn-link:hover {
@@ -391,7 +391,7 @@
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 800px;
+            max-height: none;
         }
 
         .accordion-body {
@@ -426,6 +426,20 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
+        /* アコーディオン内画像の中央配置 */
+        .accordion-image-center {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .accordion-image-center img {
+            max-width: 100%;
+            width: 600px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
         .accordion-link {
             display: inline-flex;
             align-items: center;
@@ -443,6 +457,64 @@
         .accordion-link svg {
             width: 16px;
             height: 16px;
+        }
+
+        /* アカウント作成フローのステップスタイル */
+        .account-flow {
+            margin-top: 20px;
+        }
+
+        .account-flow-step {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 24px 0;
+        }
+
+        .account-flow-step:first-child {
+            padding-top: 0;
+        }
+
+        .account-flow-step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .account-flow-step h4 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 12px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .account-flow-step p {
+            margin: 0 0 12px 0;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .account-flow-step p:last-of-type {
+            margin-bottom: 16px;
+        }
+
+        .account-flow-step a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .account-flow-step a.btn-link {
+            color: white;
+            text-decoration: none;
+        }
+
+        .account-flow-step img {
+            display: block;
+            max-width: 100%;
+            width: 600px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 16px auto 0;
         }
 
         /* レスポンシブ */
@@ -541,7 +613,7 @@
                 <div class="accordion-item">
                     <div class="accordion-header" onclick="toggleAccordion(this)">
                         <div class="accordion-number">1</div>
-                        <div class="accordion-title">教育版マインクラフト公式ホームページから<br>インストーラーをダウンロードしお使いのパソコンにインストール</div>
+                        <div class="accordion-title">教育版マインクラフトをダウンロードしお使いのパソコンにインストール</div>
                         <div class="accordion-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2">
                                 <path d="M6 9l6 6 6-6"/>
@@ -551,8 +623,11 @@
                     <div class="accordion-content">
                         <div class="accordion-body">
                             <div class="accordion-body-text">
-                                <p>マインクラフトのアプリは公式サイトから無料でダウンロードできます。アクセスするとWindows用・MAC用・iPad用・Chrome Book用と端末ごとに最適なものが選択されていますので、そのまま「今すぐダウンロード」をクリックしインストーラーをダウンロードしてください。インストーラーを開いたら画面の指示に従って教育版マインクラフトをインストールしてください。</p>
+                                <p>マインクラフトのアプリは公式サイトから無料でダウンロードできます。アクセスするとWindows用・MAC用・iPad用・Chrome Book用と端末ごとに分かれているので、該当するものをクリックしインストーラーをダウンロードしてください。インストーラーを開いたら画面の指示に従って教育版マインクラフトをインストールしてください。</p>
                                 <a href="https://education.minecraft.net/ja-jp/get-started/download" target="_blank" class="btn-link">教育版マインクラフトダウンロードはこちら ＞</a>
+                                <div class="accordion-image-center">
+                                    <img src="../assets/images/mee_hp.png" alt="教育版マインクラフトインストール">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -572,8 +647,36 @@
                     <div class="accordion-content">
                         <div class="accordion-body">
                             <div class="accordion-body-text">
-                                <p>教育版マインクラフトを利用するには、Microsoft 365のアカウントとライセンスが必要です。Microsoft 365管理センターにアクセスし、組織のアカウントを作成してください。その後、必要な人数分のMinecraft Educationライセンスを購入します。</p>
-                                <p>詳しい手順については、Microsoft公式のドキュメントをご参照ください。</p>
+                                <div class="account-flow">
+                                    <!-- ステップ1: メールアドレスの登録 -->
+                                    <div class="account-flow-step">
+                                        <h4>メールアドレスの登録</h4>
+                                        <p>はじめに下記サイトから教育版マインクラフト（Minecraft Education for Commercial）の新しい管理者アカウントを作成するために、メールアドレスを登録します。</p>
+                                        <a href="https://signup.microsoft.com/get-started/signup?products=ed55d69e-0d7b-41e4-9e25-d0891565cd56&brandingId=28b276fb-d2a0-4379-a7c0-57dce33da0f9&ali=1" target="_blank" class="btn-link">管理者アカウント作成ページ</a>
+                                        <p>「職場または学校のメールアドレス」と記載がありますが、gmailなどのアカウントでも登録可能です。<br>メールアドレスを入力したら青いボタン「次へ」を押します。
+                                        <br>その後、案内に従って各項目を入力していきます。</p>
+                                        <img src="../assets/images/account_step1.png" alt="メールアドレス登録画面">
+                                    </div>
+
+                                    <!-- ステップ2: サインインの詳細 -->
+                                    <div class="account-flow-step">
+                                        <h4>ユーザー登録</h4>
+                                        <p>ユーザー名・ドメイン名・パスワードを決めてユーザー登録をします。
+                                        <br>ユーザー名とパスワードは自由に設定することができます。ドメイン名はすでに利用されているドメインでなければ自由に設定することができます。
+                                        <br>ユーザー数は後から追加することができるので、この時は１ユーザー分のみの登録で問題ありません。
+                                        <br>全ての入力が完了したら青いボタン「次へ」を押します。</p>
+                                        <img src="../assets/images/account_step2.png" alt="サインイン詳細画面">
+                                    </div>
+
+                                    <!-- ステップ3: 支払いの追加 -->
+                                    <div class="account-flow-step">
+                                        <h4>Minecraft Education for Commercialの使用を開始する</h4>
+                                        <p>注文が完了すると登録したメールアドレスに注文内容の確認メールが届きます。
+                                        <br>この画面が表示されれば注文完了です。
+                                        <br>最後に青いボタン「Minecraft Education for Commercialの使用を開始する」を押します。</p>
+                                        <img src="../assets/images/account_step3.png" alt="支払い追加画面">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -583,7 +686,7 @@
                 <div class="accordion-item">
                     <div class="accordion-header" onclick="toggleAccordion(this)">
                         <div class="accordion-number">3</div>
-                        <div class="accordion-title">Microsoft 365管理センターより、<br>ライセンス購入した人数分のユーザー登録を行う</div>
+                        <div class="accordion-title">Microsoft 365管理センターを確認する</div>
                         <div class="accordion-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2">
                                 <path d="M6 9l6 6 6-6"/>
@@ -593,8 +696,13 @@
                     <div class="accordion-content">
                         <div class="accordion-body">
                             <div class="accordion-body-text">
-                                <p>Microsoft 365管理センターにログインし、「ユーザー」メニューから新しいユーザーを追加します。生徒や教職員など、教育版マインクラフトを使用する人数分のユーザーアカウントを作成し、それぞれにMinecraft Educationのライセンスを割り当ててください。</p>
-                                <p>ユーザー作成時に設定したメールアドレスとパスワードが、ログイン時に必要になります。</p>
+                                <p>Microsoft 365管理センターにログインし、ユーザーが登録されていることを確認します。
+                                <br>アカウントを追加したいときは、「ユーザーの追加」から登録してください。
+                                <br>ユーザー作成時に設定したメールアドレスとパスワードが、ログイン時に必要になります。</p>
+                                <a href="https://login.microsoftonline.com/common/oauth2/authorize?client_id=00000006-0000-0ff1-ce00-000000000000&response_type=code%20id_token&scope=openid%20profile&state=OpenIdConnect.AuthenticationProperties%3DSh0VcZLt_EElrIBtkt5r0QD_V9NTfMVe-qn7MeH2ik5cgOJaUR6BctDtK5EdyjTineX49BDbCZoCnMHg10FaGHbOyTX72qXPNJ_OVlCx4Y8GTfFok7MHRSa_EGMkOKmmaTIHogk-XBV_WQc4tLZ-HJh8jXLwhIi_LMoN2tTQPClPFFrAl-7dIzmQVAuBtxFv7HvBmBc6MqXZEhEXxKlQbVBfxoZYM7GHcbRMRN3n1mM&response_mode=form_post&nonce=639033835637735869.OTE1Njk4OTQtY2VkMC00ZGRiLWEzNjktMjc0Yzc3NjAxZGZiMTUzNmIwZjctYjFhZC00NWE3LWFlMmMtNGI2NjZlOWVkMmQ5&redirect_uri=https%3A%2F%2Fadmin.microsoft.com%2Flanding&ui_locales=ja-JP&mkt=ja-JP&client-request-id=159bd60e-d74b-43e3-be15-b7475d9f4aea&claims=%7B%22id_token%22%3A%7B%22xms_cc%22%3A%7B%22values%22%3A%5B%22CP1%22%5D%7D%7D%7D&x-client-SKU=ID_NET472&x-client-ver=8.9.0.0" target="_blank" class="btn-link">Microsoft365管理センター</a>
+                                <div class="accordion-image-center">
+                                    <img src="../assets/images/admin_center.png" alt="Microsoft 365管理センター">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -615,7 +723,10 @@
                         <div class="accordion-body">
                             <div class="accordion-body-text">
                                 <p>インストールした教育版マインクラフトを起動し、「サインイン」ボタンをクリックします。Microsoft 365管理センターで作成したユーザーのメールアドレスとパスワードを入力してサインインしてください。</p>
-                                <p>サインインが完了すると、教育版マインクラフトのホーム画面が表示され、ワールドの作成やインポートが可能になります。</p>
+                                <p>サインインが完了すると、教育版マインクラフトのホーム画面が表示され、ワールドのインポートが可能になります。</p>
+                                <div class="accordion-image-center">
+                                    <img src="../assets/images/mee_signin.png" alt="教育版マインクラフトサインイン画面">
+                                </div>
                             </div>
                         </div>
                     </div>
