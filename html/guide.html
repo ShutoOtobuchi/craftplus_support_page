@@ -295,6 +295,156 @@
             color: #2e7d32;
         }
 
+        /* アコーディオンスタイル */
+        .accordion-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .accordion-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 2px solid var(--primary-color);
+        }
+
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            padding: 20px 24px;
+            background-color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            gap: 16px;
+        }
+
+        .accordion-header:hover {
+            background-color: #e8f5e9;
+        }
+
+        .accordion-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            background-color: var(--primary-color);
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .accordion-title {
+            flex: 1;
+            color: #333;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .accordion-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background-color: #fff;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .accordion-icon svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s;
+        }
+
+        .accordion-icon svg path {
+            stroke: var(--primary-color);
+        }
+
+        .accordion-item.active .accordion-icon svg {
+            transform: rotate(180deg);
+        }
+
+        .accordion-item.active .accordion-icon {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .accordion-item.active .accordion-icon svg path {
+            stroke: #fff;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            background-color: #fff;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 800px;
+        }
+
+        .accordion-body {
+            padding: 24px;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .accordion-body-text {
+            flex: 1;
+        }
+
+        .accordion-body-text p {
+            margin: 0 0 16px 0;
+            line-height: 1.8;
+        }
+
+        .accordion-body-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .accordion-body-image {
+            flex: 0 0 300px;
+            max-width: 300px;
+        }
+
+        .accordion-body-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: underline;
+            margin-top: 8px;
+        }
+
+        .accordion-link:hover {
+            opacity: 0.8;
+        }
+
+        .accordion-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
         /* レスポンシブ */
         @media (max-width: 768px) {
             .import-card {
@@ -307,6 +457,16 @@
             .import-card__media {
                 justify-content: flex-start;
             }
+            .accordion-body {
+                flex-direction: column;
+            }
+            .accordion-body-image {
+                flex: none;
+                max-width: 100%;
+            }
+            .accordion-title {
+                font-size: 0.95rem;
+            }
         }
 
         @media (max-width: 600px) {
@@ -318,6 +478,24 @@
             }
             .import-card__media {
                 justify-content: center;
+            }
+            .accordion-header {
+                padding: 16px;
+                gap: 12px;
+            }
+            .accordion-number {
+                width: 36px;
+                height: 36px;
+                min-width: 36px;
+                font-size: 1rem;
+            }
+            .accordion-icon {
+                width: 32px;
+                height: 32px;
+                min-width: 32px;
+            }
+            .accordion-body {
+                padding: 16px;
             }
         }
     </style>
@@ -358,17 +536,108 @@
         <section>
             <h2>2. Minecraft Education Edition のインストール・ログイン</h2>
             
-            <h3>1．インストール</h3>
-            <p>ご利用にあたって、まずは<strong>Minecraft Education Edition（教育版マインクラフト）</strong>を端末にインストールする必要があります。</p>
-            <p><a href="https://education.minecraft.net/ja-jp/get-started/download" target="_blank" class="btn-link">公式ダウンロードページはこちら <i style="font-size:0.8em">↗</i></a></p>
-            <p class="note">OSごとにインストーラーを選択してください。（Windows／macOS／iPadなど）</p>
+            <div class="accordion-container">
+                <!-- Step 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">1</div>
+                        <div class="accordion-title">教育版マインクラフト公式ホームページから<br>インストーラーをダウンロードしお使いのパソコンにインストール</div>
+                        <div class="accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="accordion-body-text">
+                                <p>マインクラフトのアプリは公式サイトから無料でダウンロードできます。アクセスするとWindows用・MAC用・iPad用・Chrome Book用と端末ごとに最適なものが選択されていますので、そのまま「今すぐダウンロード」をクリックしインストーラーをダウンロードしてください。インストーラーを開いたら画面の指示に従って教育版マインクラフトをインストールしてください。</p>
+                                <a href="https://education.minecraft.net/ja-jp/get-started/download" target="_blank" class="btn-link">教育版マインクラフトダウンロードはこちら ＞</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <h3>2．ログイン方法</h3>
-            <p>以下のいずれかの方法でログインできます。</p>
-            
-            <strong>● ご自身でアカウントを作成する場合</strong>
-            <p style="margin-top:5px;">Microsoft 365アカウントを新規作成していただき、作成したアカウント情報でログインしてください。</p>
+                <!-- Step 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">2</div>
+                        <div class="accordion-title">Microsoft 365アカウントを作成し、人数分のライセンスを購入</div>
+                        <div class="accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="accordion-body-text">
+                                <p>教育版マインクラフトを利用するには、Microsoft 365のアカウントとライセンスが必要です。Microsoft 365管理センターにアクセスし、組織のアカウントを作成してください。その後、必要な人数分のMinecraft Educationライセンスを購入します。</p>
+                                <p>詳しい手順については、Microsoft公式のドキュメントをご参照ください。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">3</div>
+                        <div class="accordion-title">Microsoft 365管理センターより、<br>ライセンス購入した人数分のユーザー登録を行う</div>
+                        <div class="accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="accordion-body-text">
+                                <p>Microsoft 365管理センターにログインし、「ユーザー」メニューから新しいユーザーを追加します。生徒や教職員など、教育版マインクラフトを使用する人数分のユーザーアカウントを作成し、それぞれにMinecraft Educationのライセンスを割り当ててください。</p>
+                                <p>ユーザー作成時に設定したメールアドレスとパスワードが、ログイン時に必要になります。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">4</div>
+                        <div class="accordion-title">登録したユーザー情報で、教育版マインクラフトにサインイン</div>
+                        <div class="accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="accordion-body-text">
+                                <p>インストールした教育版マインクラフトを起動し、「サインイン」ボタンをクリックします。Microsoft 365管理センターで作成したユーザーのメールアドレスとパスワードを入力してサインインしてください。</p>
+                                <p>サインインが完了すると、教育版マインクラフトのホーム画面が表示され、ワールドの作成やインポートが可能になります。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <script>
+            function toggleAccordion(header) {
+                const item = header.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // 他のアコーディオンを閉じる場合はこの行をアンコメント
+                // document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+                
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+            }
+        </script>
 
         <section>
             <h2>3. 教材の取得</h2>
