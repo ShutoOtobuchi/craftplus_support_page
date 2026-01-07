@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クラフトプラス スタートガイド | サポート</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon/android-chrome-512x512.png">
+    <style>
+        /* 共通設定 */
+        :root {
+            --primary-color: #00B050;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --accent-bg: #e8f5e9;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* パンくずリスト */
+        .breadcrumbs {
+            max-width: 900px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* メインコンテンツ */
+        .content-container {
+            max-width: 900px;
+            margin: 20px auto 60px;
+            padding: 0 20px;
+        }
+
+        .doc-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* セクションスタイル */
+        section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            color: #222;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #444;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin-bottom: 1rem;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 補足・注意書き */
+        .note {
+            font-size: 0.9rem;
+            color: #666;
+            background-color: #f5f5f5;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* リンクボタン */
+        .btn-link {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px 0 20px 0;
+            font-weight: bold;
+        }
+        .btn-link:hover {
+            color: white;
+            background-color: #008a3e;
+        }
+
+        /* ワールドインポートレイアウト */
+        .import-wrapper {
+            margin-top: 25px;
+        }
+        .import-steps {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .import-steps li {
+            position: static;
+            padding: clamp(18px, 3vw, 28px) 0;
+            margin: 0;
+            border-bottom: 1px solid #e1f1e6;
+            counter-increment: step;
+        }
+        .import-steps li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .import-steps li::before {
+            display: none;
+            counter-increment: none;
+        }
+        .import-card {
+            display: flex;
+            align-items: stretch;
+            gap: clamp(18px, 4vw, 32px);
+            padding: 0;
+        }
+        .import-card__text {
+            flex: 1 1 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .import-card__media {
+            flex: 1 1 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .import-card__media img {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+        .import-steps .step-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+        .import-steps .step-info::before {
+            content: counter(step);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .import-steps .step-info p {
+            margin: 0;
+        }
+
+        /* 手順リスト（番号付き） */
+        ol.steps {
+            counter-reset: step;
+            list-style: none;
+            padding: 0;
+        }
+        ol.steps li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 15px;
+        }
+        ol.steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* トラブルシューティング */
+        .trouble-item {
+            margin-bottom: 20px;
+        }
+        .trouble-question {
+            font-weight: bold;
+            color: #d32f2f; /* 赤系で強調 */
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .trouble-question::before {
+            content: "Q.";
+            margin-right: 8px;
+            background: #ffebee;
+            color: #d32f2f;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* 問い合わせエリア (Aside) */
+        .contact-area {
+            background-color: var(--accent-bg);
+            border: 1px solid #c8e6c9;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .contact-area h3 {
+            border-left: none;
+            padding-left: 0;
+            margin-top: 0;
+            color: #2e7d32;
+        }
+
+        /* アコーディオンスタイル */
+        .accordion-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .accordion-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 2px solid var(--primary-color);
+        }
+
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            padding: 20px 24px;
+            background-color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            gap: 16px;
+        }
+
+        .accordion-header:hover {
+            background-color: #e8f5e9;
+        }
+
+        .accordion-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            background-color: var(--primary-color);
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .accordion-title {
+            flex: 1;
+            color: #333;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .accordion-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background-color: #fff;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .accordion-icon svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s;
+        }
+
+        .accordion-icon svg path {
+            stroke: var(--primary-color);
+        }
+
+        .accordion-item.active .accordion-icon svg {
+            transform: rotate(180deg);
+        }
+
+        .accordion-item.active .accordion-icon {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .accordion-item.active .accordion-icon svg path {
+            stroke: #fff;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            background-color: #fff;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: none;
+        }
+
+        .accordion-body {
+            padding: 24px;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .accordion-body-text {
+            flex: 1;
+        }
+
+        .accordion-body-text p {
+            margin: 0 0 16px 0;
+            line-height: 1.8;
+        }
+
+        .accordion-body-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .accordion-body-image {
+            flex: 0 0 300px;
+            max-width: 300px;
+        }
+
+        .accordion-body-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* アコーディオン内画像の中央配置 */
+        .accordion-image-center {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .accordion-image-center img {
+            max-width: 100%;
+            width: 600px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: underline;
+            margin-top: 8px;
+        }
+
+        .accordion-link:hover {
+            opacity: 0.8;
+        }
+
+        .accordion-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* アカウント作成フローのステップスタイル */
+        .account-flow {
+            margin-top: 20px;
+        }
+
+        .account-flow-step {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 24px 0;
+        }
+
+        .account-flow-step:first-child {
+            padding-top: 0;
+        }
+
+        .account-flow-step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .account-flow-step h4 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 12px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .account-flow-step p {
+            margin: 0 0 12px 0;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .account-flow-step p:last-of-type {
+            margin-bottom: 16px;
+        }
+
+        .account-flow-step a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .account-flow-step a.btn-link {
+            color: white;
+            text-decoration: none;
+        }
+
+        .account-flow-step img {
+            display: block;
+            max-width: 100%;
+            width: 600px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 16px auto 0;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .import-card {
+                flex-direction: column;
+            }
+            .import-card__text,
+            .import-card__media {
+                flex: 1 1 100%;
+            }
+            .import-card__media {
+                justify-content: flex-start;
+            }
+            .accordion-body {
+                flex-direction: column;
+            }
+            .accordion-body-image {
+                flex: none;
+                max-width: 100%;
+            }
+            .accordion-title {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 20px;
+            }
+            .import-steps li {
+                align-items: center;
+            }
+            .import-card__media {
+                justify-content: center;
+            }
+            .accordion-header {
+                padding: 16px;
+                gap: 12px;
+            }
+            .accordion-number {
+                width: 36px;
+                height: 36px;
+                min-width: 36px;
+                font-size: 1rem;
+            }
+            .accordion-icon {
+                width: 32px;
+                height: 32px;
+                min-width: 32px;
+            }
+            .accordion-body {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <a href="../index.html" style="display:flex; align-items:center; color:inherit;">
+                <img src="../assets/images/500-500_マークのみ_緑.png" alt="Craft Plus Logo" class="logo-img">
+                <span>クラフトプラス サポート</span>
+            </a>
+        </div>
+        <nav>
+            <a href="../index.html" class="nav-link">トップへ戻る</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="../index.html">トップ</a> &gt; クラフトプラス スタートガイド
+    </div>
+
+    <div class="content-container">
+        <h1 class="doc-title">クラフトプラス スタートガイド</h1>
+        
+        <p>このページは、クラフトプラスの教材をスムーズに利用開始できるように、導入準備から授業の進行方法、トラブル対応までを一通りまとめた<strong>「実践マニュアル」</strong>です。<br>
+        はじめての方でも安心してご利用いただけるよう、順を追ってご案内します。</p>
+
+        <section>
+            <h2>1. 利用に必要な環境の確認</h2>
+            <p>クラフトプラスを使用するには以下の環境が必要です。</p>
+            <ul>
+                <li><strong>デバイス</strong>：PCまたはタブレット（Windows／Mac／iPad）</li>
+                <li><strong>ネットワーク環境</strong>：安定したインターネット接続</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Minecraft Education Edition のインストール・ログイン</h2>
+            
+            <div class="accordion-container">
+                <!-- Step 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">1</div>
+                        <div class="accordion-title">教育版マインクラフトをダウンロードしお使いのパソコンにインストール</div>
+                        <div class="accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="accordion-body-text">
+                                <p>マインクラフトのアプリは公式サイトから無料でダウンロードできます。アクセスするとWindows用・MAC用・iPad用・Chrome Book用と端末ごとに分かれているので、該当するものをクリックしインストーラーをダウンロードしてください。インストーラーを開いたら画面の指示に従って教育版マインクラフトをインストールしてください。</p>
+                                <a href="https://education.minecraft.net/ja-jp/get-started/download" target="_blank" class="btn-link">教育版マインクラフトダウンロードはこちら ＞</a>
+                                <div class="accordion-image-center">
+                                    <img src="../assets/images/mee_hp.png" alt="教育版マインクラフトインストール">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">2</div>
+                        <div class="accordion-title">Microsoft 365アカウントを作成し、人数分のライセンスを購入</div>
+                        <div class="accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="accordion-body-text">
+                                <div class="account-flow">
+                                    <!-- ステップ1: メールアドレスの登録 -->
+                                    <div class="account-flow-step">
+                                        <h4>メールアドレスの登録</h4>
+                                        <p>はじめに下記サイトから教育版マインクラフト（Minecraft Education for Commercial）の新しい管理者アカウントを作成するために、メールアドレスを登録します。</p>
+                                        <a href="https://signup.microsoft.com/get-started/signup?products=ed55d69e-0d7b-41e4-9e25-d0891565cd56&brandingId=28b276fb-d2a0-4379-a7c0-57dce33da0f9&ali=1" target="_blank" class="btn-link">管理者アカウント作成ページ</a>
+                                        <p>「職場または学校のメールアドレス」と記載がありますが、gmailなどのアカウントでも登録可能です。<br>メールアドレスを入力したら青いボタン「次へ」を押します。
+                                        <br>その後、案内に従って各項目を入力していきます。</p>
+                                        <img src="../assets/images/account_step1.png" alt="メールアドレス登録画面">
+                                    </div>
+
+                                    <!-- ステップ2: サインインの詳細 -->
+                                    <div class="account-flow-step">
+                                        <h4>ユーザー登録</h4>
+                                        <p>ユーザー名・ドメイン名・パスワードを決めてユーザー登録をします。
+                                        <br>ユーザー名とパスワードは自由に設定することができます。ドメイン名はすでに利用されているドメインでなければ自由に設定することができます。
+                                        <br>ユーザー数は後から追加することができるので、この時は１ユーザー分のみの登録で問題ありません。
+                                        <br>全ての入力が完了したら青いボタン「次へ」を押します。</p>
+                                        <img src="../assets/images/account_step2.png" alt="サインイン詳細画面">
+                                    </div>
+
+                                    <!-- ステップ3: 支払いの追加 -->
+                                    <div class="account-flow-step">
+                                        <h4>Minecraft Education for Commercialの使用を開始する</h4>
+                                        <p>注文が完了すると登録したメールアドレスに注文内容の確認メールが届きます。
+                                        <br>この画面が表示されれば注文完了です。
+                                        <br>最後に青いボタン「Minecraft Education for Commercialの使用を開始する」を押します。</p>
+                                        <img src="../assets/images/account_step3.png" alt="支払い追加画面">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">3</div>
+                        <div class="accordion-title">Microsoft 365管理センターを確認する</div>
+                        <div class="accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="accordion-body-text">
+                                <p>Microsoft 365管理センターにログインし、ユーザーが登録されていることを確認します。
+                                <br>アカウントを追加したいときは、「ユーザーの追加」から登録してください。
+                                <br>ユーザー作成時に設定したメールアドレスとパスワードが、ログイン時に必要になります。</p>
+                                <a href="https://login.microsoftonline.com/common/oauth2/authorize?client_id=00000006-0000-0ff1-ce00-000000000000&response_type=code%20id_token&scope=openid%20profile&state=OpenIdConnect.AuthenticationProperties%3DSh0VcZLt_EElrIBtkt5r0QD_V9NTfMVe-qn7MeH2ik5cgOJaUR6BctDtK5EdyjTineX49BDbCZoCnMHg10FaGHbOyTX72qXPNJ_OVlCx4Y8GTfFok7MHRSa_EGMkOKmmaTIHogk-XBV_WQc4tLZ-HJh8jXLwhIi_LMoN2tTQPClPFFrAl-7dIzmQVAuBtxFv7HvBmBc6MqXZEhEXxKlQbVBfxoZYM7GHcbRMRN3n1mM&response_mode=form_post&nonce=639033835637735869.OTE1Njk4OTQtY2VkMC00ZGRiLWEzNjktMjc0Yzc3NjAxZGZiMTUzNmIwZjctYjFhZC00NWE3LWFlMmMtNGI2NjZlOWVkMmQ5&redirect_uri=https%3A%2F%2Fadmin.microsoft.com%2Flanding&ui_locales=ja-JP&mkt=ja-JP&client-request-id=159bd60e-d74b-43e3-be15-b7475d9f4aea&claims=%7B%22id_token%22%3A%7B%22xms_cc%22%3A%7B%22values%22%3A%5B%22CP1%22%5D%7D%7D%7D&x-client-SKU=ID_NET472&x-client-ver=8.9.0.0" target="_blank" class="btn-link">Microsoft365管理センター</a>
+                                <div class="accordion-image-center">
+                                    <img src="../assets/images/admin_center.png" alt="Microsoft 365管理センター">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-number">4</div>
+                        <div class="accordion-title">登録したユーザー情報で、教育版マインクラフトにサインイン</div>
+                        <div class="accordion-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="accordion-body-text">
+                                <p>インストールした教育版マインクラフトを起動し、「サインイン」ボタンをクリックします。Microsoft 365管理センターで作成したユーザーのメールアドレスとパスワードを入力してサインインしてください。</p>
+                                <p>サインインが完了すると、教育版マインクラフトのホーム画面が表示され、ワールドのインポートが可能になります。</p>
+                                <div class="accordion-image-center">
+                                    <img src="../assets/images/mee_signin.png" alt="教育版マインクラフトサインイン画面">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            function toggleAccordion(header) {
+                const item = header.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // 他のアコーディオンを閉じる場合はこの行をアンコメント
+                // document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+                
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+            }
+        </script>
+
+        <section>
+            <h2>3. 教材の取得</h2>
+            <p>ドリル<code>（PDF）</code>とワールドデータ<code>（.mcworld）</code>は、以下の共有フォルダからダウンロードできます。</p>
+            
+            <a href="https://drive.google.com/drive/folders/1x73BRYIY2Zr0C2oegONynI3QIRy44hoi?usp=sharing" target="_blank" class="btn-link">教材ダウンロードフォルダ (Google Drive)</a>
+            
+            <div class="note">
+                <p>※ この教材ダウンロードフォルダは、申込時にご連絡いただいたメールアドレスに対して共有設定を行っています。<br>　必ずそのメールアドレスからアクセスしてください。</p>
+                <p>※ ドリル<code>（PDF）</code>のみでワールドデータ<code>（.mcworld）</code>が無い教材もございます。</p>
+            </div>
+
+            <div class="import-wrapper">
+                <div class="import-text">
+                    <h3>ワールドを取り込む方法</h3>
+                    <ol class="steps import-steps">
+                        <li>
+                            <div class="import-card">
+                                <div class="import-card__text">
+                                    <div class="step-info">
+                                        <p>共有フォルダから <code>.mcworld</code> ファイルをダウンロード</p>
+                                    </div>
+                                </div>
+                                <div class="import-card__media">
+                                    <img src="../assets/images/mcworld.png" alt="Google Driveから.mcworldファイルをダウンロードする様子">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="import-card">
+                                <div class="import-card__text">
+                                    <div class="step-info">
+                                        <p>Minecraft Education Editionを起動</p>
+                                    </div>
+                                </div>
+                                <div class="import-card__media">
+                                    <img src="../assets/images/mee_top.png" alt="Minecraft Education Editionのトップ画面">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="import-card">
+                                <div class="import-card__text">
+                                    <div class="step-info">
+                                        <p>「インポート」をクリックして使用する <code>.mcworld</code> ファイルを選択</p>
+                                    </div>
+                                </div>
+                                <div class="import-card__media">
+                                    <img src="../assets/images/import.png" alt="インポートボタンとファイル選択画面">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="import-card">
+                                <div class="import-card__text">
+                                    <div class="step-info">
+                                        <p>ワールドの取り込み完了後、「作成した世界」をクリック</p>
+                                    </div>
+                                </div>
+                                <div class="import-card__media">
+                                    <img src="../assets/images/open_world.png" alt="インポート直後のワールド一覧画面">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="import-card">
+                                <div class="import-card__text">
+                                    <div class="step-info">
+                                        <p>使用するワールドをクリックし、「プレイ」ボタンを押して開始</p>
+                                    </div>
+                                </div>
+                                <div class="import-card__media">
+                                    <img src="../assets/images/world_icon.png" alt="作成した世界のアイコン">
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. 授業の進め方</h2>
+            <ol class="steps">
+                <li>Minecraft Education Editionにログイン</li>
+                <li>ワールドを開く（原則、1人で利用）<br>
+                    <span style="font-size:0.9rem; color:#666;">※「マルチ対応」と明記されていない教材は、1人で使用してください。</span>
+                </li>
+                <li>課題に取り組み、ステージを進行する</li>
+                <li>授業後はログアウトしてください</li>
+            </ol>
+            <p class="note">※ 同じアカウントでログインすると、ワールドの状態は保存されており、続きから再開可能です。</p>
+
+            <p>授業は<strong>自学自習スタイル</strong>での進行を推奨しています。<br>
+            基本は個人作業＋講師による声掛けで運用してください。</p>
+
+            <div class="note">
+                <p>カリキュラムの完了目安や対象学年の一覧は、導入時に共有しているGoogle Driveフォルダ内の<a href="https://docs.google.com/spreadsheets/d/10r_2ucAJTHUy4SFWJNfBqi5Y9No2EMD_eKyuKgEL5j4/edit?usp=drive_link" target="_blank">スプレッドシート</a>にまとめております。授業計画を立てる際はそちらをご参照ください。</p>
+            </div>
+        </section>
+
+        <div class="contact-area">
+            <h3>バグ・不具合を見つけた場合</h3>
+            <p>お手数ですが<a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank">バグ・不具合報告フォーム</a>からご報告をお願いいたします。</p>
+            
+            <h3 style="margin-top:20px;">その他のお問い合わせ</h3>
+            <p>その他ご不明点がある場合は、<a href="https://docs.google.com/forms/d/e/1FAIpQLScLtgEMQA6dt01u-anSSbHF6BgqVYT6ehr5jj7oOuJMhDT3xQ/viewform?usp=header" target="_blank">お問い合わせフォーム</a>をご利用ください。</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
