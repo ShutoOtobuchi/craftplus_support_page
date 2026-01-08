@@ -202,7 +202,7 @@
         <h1 class="doc-title">よく使うコマンド一覧</h1>
         
         <section>
-            <h2>プレイヤーをテレポートさせたいとき</h2>
+            <h2>自分をテレポートさせたいとき</h2>
             <div class="table-wrapper">
                 <table>
                     <thead>
@@ -214,18 +214,59 @@
                     <tbody>
                         <tr>
                             <td><code>/tp @s @c</code></td>
-                            <td>プレイヤーをエージェントの元にテレポートさせる</td>
+                            <td>自分をエージェントの元にテレポートさせる</td>
                         </tr>
                         <tr>
                             <td><code>/tp @s 0 0 0</code></td>
-                            <td>プレイヤーをワールド座標0 0 0にテレポートさせる</td>
+                            <td>自分をワールド座標0 0 0にテレポートさせる</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="note">
                 <strong>※注意：</strong><br>
-                このコマンドは、<code>/tp @目的地 @テレポートさせる対象</code>という形になっているので、状況に応じてアレンジしてください。
+                このコマンドは、<code>/tp @テレポートさせる対象 @目的地</code>という形になっています。
+                <br><code>/tp</code>の後ろにテレポートさせる対象を決め、その後ろに座標（X Y Zの順番）もしくは対象を指定することでその位置にテレポートすることができます。
+            </div>
+        </section>
+
+                <section>
+            <h2>対象を決める条件文</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>コマンド</th>
+                            <th>使用状況・用途</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>@a</code></td>
+                            <td>全てのプレイヤー</td>
+                        </tr>
+                        <tr>
+                            <td><code>@c</code></td>
+                            <td>エージェント（ロボット）</td>
+                        </tr>
+                        <tr>
+                            <td><code>@e</code></td>
+                            <td>全てのエンティティ</td>
+                        </tr>
+                        <tr>
+                            <td><code>@p</code></td>
+                            <td>最も近いプレイヤー</td>
+                        </tr>
+                        <tr>
+                            <td><code>@r</code></td>
+                            <td>ランダムなプレイヤー</td>
+                        </tr>
+                        <tr>
+                            <td><code>@s</code></td>
+                            <td>自分自身</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
@@ -242,7 +283,7 @@
                     <tbody>
                         <tr>
                             <td><code>/tp @c @s</code></td>
-                            <td>エージェントをプレイヤーの元にテレポートさせる</td>
+                            <td>エージェントを自分の元にテレポートさせる</td>
                         </tr>
                         <tr>
                             <td><code>/tp @c 0 0 0</code></td>
